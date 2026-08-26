@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import PatronJaali from '../components/PatronJaali.astro';
+import Boton from '../components/Boton.astro';
+---
+
+<Base titulo="Página no encontrada" descripcion="Esta página no existe o se movió.">
+  <section class="notfound">
+    <PatronJaali patron="estrella-de-seis" escala={160} color="var(--color-tinta)" opacidad={0.08} />
+    <div class="contenedor notfound__cuerpo">
+      <p class="notfound__codigo">404</p>
+      <h1 class="notfound__titulo">Esta página no existe</h1>
+      <p class="notfound__bajada">
+        Puede que el enlace esté roto o que la página se haya movido. Vuelve al inicio o pide tu
+        cotización directamente.
+      </p>
+      <div class="notfound__acciones">
+        <Boton href="/">Ir al inicio</Boton>
+        <Boton href="/cotizar" variante="secundario">Cotizar</Boton>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .notfound {
+    position: relative;
+    overflow: hidden;
+    min-height: calc(100dvh - 4.5rem - 12rem);
+    display: flex;
+    align-items: center;
+  }
+  .notfound__cuerpo {
+    position: relative;
+    max-width: 34rem;
+  }
+  .notfound__codigo {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: var(--color-borde);
+    line-height: 1;
+  }
+  .notfound__titulo {
+    margin-top: 0.5rem;
+    font-size: var(--text-h1);
+  }
+  .notfound__bajada {
+    margin-top: 1rem;
+    font-size: var(--text-guia);
+    color: var(--color-tinta-suave);
+  }
+  .notfound__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
