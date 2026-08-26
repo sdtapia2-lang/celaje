@@ -1,0 +1,117 @@
+---
+import { NOMBRE, DESCRIPTOR } from '../config/marca';
+import { NAVEGACION } from '../config/contenido';
+
+const ruta = Astro.url.pathname.replace(/\/$/, '') || '/';
+const activo = (href: string) => ruta === href || ruta.startsWith(href + '/');
+---
+
+<header class="cab">
+  <div class="contenedor cab__fila">
+    <a href="/" class="marca" aria-label={`${NOMBRE} — inicio`}>
+      <span class="marca__nombre">{NOMBRE}</span>
+      <span class="marca__descriptor">{DESCRIPTOR}</span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      {
+        NAVEGACION.map((i) => (
+          <a href={i.href} class:list={['nav__enlace', activo(i.href) && 'es-activo']}
+             aria-current={activo(i.href) ? 'page' : undefined}>
+            {i.texto}
+          </a>
+        ))
+      }
+      <a href="/cotizar" class="nav__cta">Cotizar</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .cab {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background-color: color-mix(in srgb, var(--color-hueso) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-borde) 40%, transparent);
+  }
+
+  .cab__fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 4.5rem;
+    padding-block: 0.75rem;
+  }
+
+  .marca {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--color-tinta);
+    line-height: 1.1;
+  }
+  .marca__nombre {
+    font-family: var(--font-display);
+    font-variation-settings: 'SOFT' 25, 'WONK' 1, 'opsz' 48;
+    font-size: 1.5rem;
+    letter-spacing: 0.06em;
+  }
+  .marca__descriptor {
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-tinta-suave);
+    margin-top: 0.15rem;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.2vw, 2rem);
+  }
+
+  .nav__enlace {
+    font-size: 0.9375rem;
+    color: var(--color-tinta);
+    text-decoration: none;
+    padding-block: 0.35rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.18s ease, color 0.18s ease;
+  }
+  .nav__enlace:hover { border-bottom-color: var(--color-borde); }
+  .nav__enlace.es-activo {
+    color: var(--color-bosque);
+    border-bottom-color: var(--color-bosque);
+  }
+
+  .nav__cta {
+    padding: 0.6rem 1.15rem;
+    background-color: var(--color-bosque);
+    color: #fff;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background-color 0.18s ease;
+  }
+  .nav__cta:hover { background-color: var(--color-bosque-hover); }
+
+  /* Bajo 860px la navegacion pasa a una fila propia y hace scroll lateral,
+     que es mas honesto que esconderla tras un menu para solo cinco enlaces. */
+  @media (max-width: 860px) {
+    .cab__fila { flex-wrap: wrap; gap: 0.75rem; }
+    .nav {
+      order: 3;
+      width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 0.35rem;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav__enlace, .nav__cta { white-space: nowrap; flex: none; }
+    .nav__cta { margin-left: auto; }
+  }
+</style>

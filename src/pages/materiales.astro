@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import Boton from '../components/Boton.astro';
+import { MATERIALES, TERMINACIONES } from '../config/contenido';
+
+const interior = MATERIALES.filter((m) => m.ubicacion === 'interior');
+const exterior = MATERIALES.filter((m) => m.ubicacion === 'exterior');
+---
+
+<Base
+  titulo="Materiales"
+  descripcion="Terciado estándar, de mueblería y marino, MDF, HDPE y HPL. Qué material va en interior y cuál aguanta la intemperie."
+>
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="rastro"><a href="/">Inicio</a> / Materiales</p>
+      <p class="etiqueta">Materiales</p>
+      <h1 class="titulo-seccion">El material lo define el lugar, no el gusto</h1>
+      <p class="bajada medida-lectura">
+        En una celosía casi todo el costo está en el mecanizado: cortar, lijar y terminar. La
+        plancha en sí es una fracción menor. Por eso subir de un terciado estándar a uno marino,
+        el que aguanta afuera, encarece bastante menos de lo que la mayoría supone. Si el panel va
+        a exterior, no vale la pena arriesgarse con un material de interior para ahorrar poco.
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion seccion--crema seccion--compacta">
+    <div class="contenedor">
+      <h2 class="materiales-grupo__titulo">Interior</h2>
+      <ul class="materiales-lista">
+        {
+          interior.map((m) => (
+            <li class="materiales-fila">
+              <div class="materiales-fila__nombre">
+                <h3>{m.nombre}</h3>
+                {m.recomendado && <span class="materiales-pill">Recomendado</span>}
+              </div>
+              <p class="materiales-fila__detalle">{m.detalle}</p>
+              <span class="materiales-fila__espesor">{m.espesorMm} mm</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion seccion--compacta">
+    <div class="contenedor">
+      <h2 class="materiales-grupo__titulo">Exterior</h2>
+      <ul class="materiales-lista">
+        {
+          exterior.map((m) => (
+            <li class="materiales-fila">
+              <div class="materiales-fila__nombre">
+                <h3>{m.nombre}</h3>
+                {m.recomendado && <span class="materiales-pill">Recomendado</span>}
+              </div>
+              <p class="materiales-fila__detalle">{m.detalle}</p>
+              <span class="materiales-fila__espesor">{m.espesorMm} mm</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion seccion--crema">
+    <div class="contenedor">
+      <h2 class="materiales-grupo__titulo">Terminaciones</h2>
+      <ul class="materiales-term">
+        {
+          TERMINACIONES.map((t) => (
+            <li>
+              <h3>{t.nombre}</h3>
+              <p>{t.detalle}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="materiales-cierre">
+    <div class="contenedor materiales-cierre__cuerpo">
+      <h2 class="materiales-cierre__titulo">No tenés que elegir solo</h2>
+      <p class="materiales-cierre__bajada medida-lectura">
+        Contanos dónde va el panel y te proponemos el material y la terminación, con precio
+        incluido en la misma respuesta.
+      </p>
+      <Boton href="/cotizar">Cotizar</Boton>
+    </div>
+  </section>
+</Base>

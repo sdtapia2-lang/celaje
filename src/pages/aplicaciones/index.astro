@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import PatronJaali from '../../components/PatronJaali.astro';
+import { APLICACIONES } from '../../config/contenido';
+---
+
+<Base
+  titulo="Aplicaciones"
+  descripcion="Quiebravistas, biombos, fachadas ventiladas, cielos decorativos y frentes de mueble en celosía de madera a medida."
+>
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="rastro"><a href="/">Inicio</a> / Aplicaciones</p>
+      <p class="etiqueta">Usos</p>
+      <h1 class="titulo-seccion">Dónde va una celosía</h1>
+      <p class="bajada medida-lectura">
+        La misma técnica sirve para cinco problemas distintos. Elegí el tuyo para ver el material
+        y el diseño que mejor le calzan.
+      </p>
+
+      <ul class="aplicaciones-grid">
+        {
+          APLICACIONES.map((a) => (
+            <li>
+              <a href={`/aplicaciones/${a.slug}`} class="aplicaciones-tarjeta">
+                <div class="aplicaciones-tarjeta__trama">
+                  <PatronJaali patron={a.patronSugerido} escala={70} color="var(--color-bosque)" opacidad={0.75} />
+                </div>
+                <div class="aplicaciones-tarjeta__cuerpo">
+                  <h2 class="aplicaciones-tarjeta__titulo">{a.nombre}</h2>
+                  <p class="aplicaciones-tarjeta__resumen">{a.resumen}</p>
+                  <span class="aplicaciones-tarjeta__ubicacion">
+                    {a.ubicacion === 'exterior' ? 'Exterior' : a.ubicacion === 'interior' ? 'Interior' : 'Interior y exterior'}
+                  </span>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Base>

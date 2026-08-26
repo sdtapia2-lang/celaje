@@ -1,0 +1,189 @@
+---
+import Base from '../layouts/Base.astro';
+import { PATRONES, MATERIALES, APLICACIONES } from '../config/contenido';
+
+const aplicacionUrl = Astro.url.searchParams.get('aplicacion') ?? '';
+const aplicacionValida = APLICACIONES.some((a) => a.slug === aplicacionUrl) ? aplicacionUrl : '';
+---
+
+<Base
+  titulo="Cotizar"
+  descripcion="Pedí tu cotización de celosía a medida. Contanos las medidas y te respondemos con diseño, material y plazo."
+>
+  <section class="seccion seccion--compacta">
+    <div class="contenedor cotizar-intro">
+      <p class="rastro"><a href="/">Inicio</a> / Cotizar</p>
+      <p class="etiqueta">Cotización</p>
+      <h1 class="titulo-seccion">Contanos qué vano tenés</h1>
+      <p class="bajada medida-lectura">
+        Con las medidas y una foto del lugar te respondemos con una propuesta concreta: diseño,
+        material, terminación y plazo. Sin compromiso.
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion seccion--compacta">
+    <div class="contenedor cotizar-form-envoltorio">
+      <form id="form-cotizacion" class="cotizar-form" novalidate>
+        <input type="hidden" name="origen" value={aplicacionValida ? `aplicacion:${aplicacionValida}` : 'formulario'} />
+        <input type="hidden" name="tiempoLlenadoSeg" id="campo-tiempo" value="0" />
+
+        <div class="cotizar-campo cotizar-campo--trampa" aria-hidden="true">
+          <label for="sitioWeb">No completar este campo</label>
+          <input type="text" id="sitioWeb" name="sitioWeb" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <fieldset class="cotizar-grupo">
+          <legend>Quién sos</legend>
+          <div class="cotizar-fila cotizar-fila--3">
+            <div class="cotizar-campo">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" required minlength="2" />
+            </div>
+            <div class="cotizar-campo">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="cotizar-campo">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" />
+            </div>
+          </div>
+          <div class="cotizar-fila cotizar-fila--2">
+            <div class="cotizar-campo">
+              <label for="tipoCliente">Sos... *</label>
+              <select id="tipoCliente" name="tipoCliente" required>
+                <option value="hogar">Particular / hogar</option>
+                <option value="arquitecto">Arquitecto o diseñador</option>
+                <option value="comercio">Comercio u hotelería</option>
+              </select>
+            </div>
+            <div class="cotizar-campo">
+              <label for="comuna">Comuna</label>
+              <input type="text" id="comuna" name="comuna" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="cotizar-grupo">
+          <legend>Qué necesitás</legend>
+          <div class="cotizar-campo">
+            <label for="aplicacion">Aplicación</label>
+            <select id="aplicacion" name="aplicacion">
+              <option value="">— Elegir —</option>
+              {
+                APLICACIONES.map((a) => (
+                  <option value={a.slug} selected={a.slug === aplicacionValida}>
+                    {a.nombre}
+                  </option>
+                ))
+              }
+            </select>
+          </div>
+
+          <div class="cotizar-fila cotizar-fila--3">
+            <div class="cotizar-campo">
+              <label for="anchoCm">Ancho (cm) *</label>
+              <input type="number" id="anchoCm" name="anchoCm" required min="1" max="1000" step="0.5" />
+            </div>
+            <div class="cotizar-campo">
+              <label for="altoCm">Alto (cm) *</label>
+              <input type="number" id="altoCm" name="altoCm" required min="1" max="1000" step="0.5" />
+            </div>
+            <div class="cotizar-campo">
+              <label for="cantidad">Cantidad</label>
+              <input type="number" id="cantidad" name="cantidad" min="1" max="500" value="1" />
+            </div>
+          </div>
+
+          <div class="cotizar-campo cotizar-campo--radios">
+            <span class="cotizar-campo__etiqueta">Ubicación *</span>
+            <label class="cotizar-radio"><input type="radio" name="ubicacion" value="interior" required checked /> Interior</label>
+            <label class="cotizar-radio"><input type="radio" name="ubicacion" value="exterior" /> Exterior</label>
+          </div>
+
+          <div class="cotizar-fila cotizar-fila--2">
+            <div class="cotizar-campo">
+              <label for="patron">Diseño de interés</label>
+              <select id="patron" name="patron">
+                <option value="">Que me recomienden</option>
+                {PATRONES.map((p) => <option value={p.slug}>{p.nombre}</option>)}
+              </select>
+            </div>
+            <div class="cotizar-campo">
+              <label for="material">Material</label>
+              <select id="material" name="material">
+                <option value="">Que me asesoren</option>
+                {MATERIALES.map((m) => <option value={m.slug}>{m.nombre}</option>)}
+              </select>
+            </div>
+          </div>
+
+          <div class="cotizar-fila cotizar-fila--2">
+            <div class="cotizar-campo">
+              <label for="terminacion">Terminación</label>
+              <input type="text" id="terminacion" name="terminacion" placeholder="Aceitado, pintado, natural..." />
+            </div>
+            <div class="cotizar-campo">
+              <label for="plazo">Plazo</label>
+              <input type="text" id="plazo" name="plazo" placeholder="Sin apuro, en un mes..." />
+            </div>
+          </div>
+
+          <div class="cotizar-campo">
+            <label for="adjunto">Foto del vano o plano</label>
+            <input type="file" id="adjunto" name="adjunto" accept="image/png,image/jpeg,image/webp,application/pdf" />
+            <p class="cotizar-ayuda">JPG, PNG o PDF, hasta 10 MB.</p>
+          </div>
+
+          <div class="cotizar-campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="cotizar-envio">
+          <button type="submit" class="btn btn--primario" id="boton-enviar">Enviar cotización</button>
+          <p id="estado-envio" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const form = document.getElementById('form-cotizacion') as HTMLFormElement;
+  const boton = document.getElementById('boton-enviar') as HTMLButtonElement;
+  const estado = document.getElementById('estado-envio') as HTMLParagraphElement;
+  const campoTiempo = document.getElementById('campo-tiempo') as HTMLInputElement;
+  const inicio = Date.now();
+
+  form.addEventListener('submit', async (evento) => {
+    evento.preventDefault();
+    campoTiempo.value = String(Math.round((Date.now() - inicio) / 1000));
+
+    if (!form.reportValidity()) return;
+
+    boton.disabled = true;
+    boton.textContent = 'Enviando…';
+    estado.textContent = '';
+
+    try {
+      const respuesta = await fetch('/api/cotizar', { method: 'POST', body: new FormData(form) });
+      const cuerpo = await respuesta.json();
+
+      if (!respuesta.ok || !cuerpo.ok) {
+        throw new Error(cuerpo.error || 'No se pudo enviar. Probá de nuevo.');
+      }
+
+      form.hidden = true;
+      estado.textContent = '¡Listo! Recibimos tu solicitud y te vamos a escribir a la brevedad.';
+      estado.className = 'cotizar-exito';
+    } catch (error) {
+      boton.disabled = false;
+      boton.textContent = 'Enviar cotización';
+      estado.textContent = error instanceof Error ? error.message : 'Ocurrió un error. Probá de nuevo.';
+      estado.className = 'cotizar-error';
+    }
+  });
+</script>

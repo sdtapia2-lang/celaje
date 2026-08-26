@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import PatronJaali from '../../components/PatronJaali.astro';
+import Boton from '../../components/Boton.astro';
+import { PATRONES } from '../../config/contenido';
+---
+
+<Base
+  titulo="Diseños de celosías"
+  descripcion="Cinco patrones geométricos, cada uno con su porcentaje de calado, módulo y ancho de tira medidos. Del más luminoso al más ornamental."
+>
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="rastro"><a href="/">Inicio</a> / Diseños</p>
+      <p class="etiqueta">Catálogo</p>
+      <h1 class="titulo-seccion">Cinco patrones, cinco caracteres de luz</h1>
+      <p class="bajada medida-lectura">
+        Cada uno se elige por dos criterios de fabricación, no solo estéticos: que la madera
+        forme una sola pieza al cortarla, y que la tira tenga el ancho mínimo para no quebrarse.
+        Los datos de esta página se miden sobre la geometría real de cada trazado.
+      </p>
+
+      <ul class="disenos-lista">
+        {
+          PATRONES.map((p) => (
+            <li class="disenos-item">
+              <a href={`/disenos/${p.slug}`} class="disenos-item__enlace">
+                <div class="disenos-item__muestra">
+                  <PatronJaali patron={p.slug} escala={140} color="var(--color-tinta)" />
+                </div>
+                <div class="item__cuerpo">
+                  <h2 class="disenos-item__titulo">{p.nombre}</h2>
+                  <p class="disenos-item__origen">{p.origen}</p>
+                  <dl class="datos">
+                    <div><dt>Calado</dt><dd>{p.caladoPct}%</dd></div>
+                    <div><dt>Módulo</dt><dd>{p.moduloMm} mm</dd></div>
+                    <div><dt>Tira</dt><dd>{p.tiraMm} mm</dd></div>
+                  </dl>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="disenos-cta">
+        <p>¿No sabes cuál te sirve? Contanos el vano y te recomendamos uno.</p>
+        <Boton href="/cotizar">Cotizar</Boton>
+      </div>
+    </div>
+  </section>
+</Base>

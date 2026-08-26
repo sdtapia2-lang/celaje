@@ -1,0 +1,82 @@
+---
+/**
+ * Dibuja un patron generado como superficie teselada.
+ *
+ * Usa `mask-image` y no `background-image` a proposito: un SVG cargado como
+ * imagen de fondo no hereda `currentColor`, asi que habria que generar una
+ * copia del archivo por cada color. Como mascara, el SVG aporta solo la forma
+ * y el color sale de un token, de modo que un unico archivo sirve para todas
+ * las variantes.
+ *
+ * `sombra` inclina y desenfoca la trama para leerse como la sombra que el
+ * panel proyecta, en vez del panel mismo.
+ */
+import { patronPorSlug } from '../config/contenido';
+
+interface Props {
+  patron: string;
+  /** Ancho del modulo en px. Equivale al `moduloMm` real del patron. */
+  escala?: number;
+  color?: string;
+  opacidad?: number;
+  sombra?: boolean;
+  /**
+   * Cubre al ancestro posicionado. Va por defecto y se resuelve DENTRO del
+   * componente a proposito: los estilos con alcance de Astro no cruzan la
+   * frontera del componente, asi que una clase pasada desde la pagina llega
+   * sin su atributo de alcance y sus reglas nunca aplican. Posicionar desde
+   * afuera deja el div en altura cero y el patron invisible.
+   */
+  relleno?: boolean;
+  class?: string;
+}
+
+const {
+  patron,
+  escala = 180,
+  color = 'var(--color-tinta)',
+  opacidad = 1,
+  sombra = false,
+  relleno = true,
+  class: clase,
+} = Astro.props;
+
+const datos = patronPorSlug(patron);
+if (!datos) throw new Error(`Patron desconocido: "${patron}"`);
+
+const alto = escala / datos.relacionCelda;
+---
+
+<div
+  class:list={['patron', relleno && 'patron--relleno', sombra && 'patron--sombra', clase]}
+  style={`--url:url('/patrones/${patron}.svg');--w:${escala}px;--h:${alto.toFixed(2)}px;--tinte:${color};--op:${opacidad}`}
+  aria-hidden="true"
+>
+</div>
+
+<style>
+  .patron {
+    background-color: var(--tinte);
+    opacity: var(--op);
+    mask-image: var(--url);
+    mask-repeat: repeat;
+    mask-size: var(--w) var(--h);
+    -webkit-mask-image: var(--url);
+    -webkit-mask-repeat: repeat;
+    -webkit-mask-size: var(--w) var(--h);
+    pointer-events: none;
+  }
+
+  .patron--relleno {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* La sombra de una celosia nunca cae a escuadra: se alarga y se inclina
+     segun la altura del sol, y pierde definicion con la distancia. */
+  .patron--sombra {
+    transform: skewY(-8deg) skewX(-3deg) scale(1.25);
+    transform-origin: top left;
+    filter: blur(1.5px);
+  }
+</style>

@@ -1,0 +1,239 @@
+@import './paginas.css';
+@import 'tailwindcss';
+
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/archivo';
+
+/*
+ * Paleta muestreada de Diseños/Branding/Colorimetría.jpeg.
+ * Los tokens derivados (-suave, -accion, -texto, borde) NO son a ojo:
+ * los genera y verifica scripts/verificar-contraste.mjs contra WCAG 2.1.
+ * Si tocas un color, corre `npm run contraste` antes de commitear.
+ *
+ * Reglas de uso, consecuencia directa de esa verificacion:
+ *   - Accion primaria = bosque con texto blanco (11.95:1).
+ *   - terracota y ocre planos NUNCA llevan texto: son superficie y adorno.
+ *     Para texto usa terracota-texto / ocre-texto; para botones, terracota-accion.
+ */
+@theme {
+  --color-hueso: #f5f1e8;
+  --color-crema: #ebe3d4;
+  --color-arena: #d8c8ae;
+  --color-borde: #98897b;
+  --color-tinta: #251a20;
+  --color-tinta-suave: #6b5e57;
+  --color-bosque: #183d35;
+  --color-bosque-hover: #33534a;
+  --color-terracota: #b66f5b;
+  --color-terracota-accion: #a66655;
+  --color-terracota-texto: #9a5f50;
+  --color-ocre: #b18a51;
+  --color-ocre-texto: #876842;
+
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Escala fluida: min en 375px, max en 1440px */
+  --text-display: clamp(2.75rem, 1.2rem + 6.6vw, 6rem);
+  --text-h1: clamp(2.125rem, 1.2rem + 3.9vw, 4rem);
+  --text-h2: clamp(1.625rem, 1.15rem + 2vw, 2.625rem);
+  --text-h3: clamp(1.25rem, 1.05rem + 0.85vw, 1.75rem);
+  --text-cuerpo: 1.0625rem;
+  --text-guia: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-hueso);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    font-size: var(--text-cuerpo);
+    line-height: 1.65;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    /* opsz alto + WONK activo: los remates se vuelven irregulares y el
+       titular lee dibujado a mano en vez de compuesto por defecto. */
+    font-variation-settings: 'SOFT' 25, 'WONK' 1, 'opsz' 96;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Foco visible y con contraste propio sobre cualquiera de los fondos. */
+  :focus-visible {
+    outline: 2px solid var(--color-bosque);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-arena);
+    color: var(--color-tinta);
+  }
+}
+
+@layer components {
+  .contenedor {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 4rem);
+  }
+
+  .medida-lectura {
+    max-width: 62ch;
+  }
+}
+
+/*
+ * Ritmo de seccion compartido por todas las paginas. Vive aqui y no en cada
+ * pagina porque los estilos con alcance de Astro obligarian a repetir estas
+ * mismas reglas seis veces, con seis oportunidades de que se desincronicen.
+ */
+@layer components {
+  .seccion {
+    padding-block: clamp(3.5rem, 9vh, 6.5rem);
+  }
+  .seccion--compacta {
+    padding-block: clamp(2.5rem, 6vh, 4rem);
+  }
+  .seccion--crema {
+    background-color: var(--color-crema);
+  }
+
+  .etiqueta {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-ocre-texto);
+  }
+
+  .titulo-seccion {
+    margin-top: 0.9rem;
+    font-size: var(--text-h2);
+  }
+
+  .bajada {
+    margin-top: 1.1rem;
+    font-size: var(--text-guia);
+    color: var(--color-tinta-suave);
+  }
+
+  /* Rastro de navegacion: da contexto y una salida a la seccion superior. */
+  .rastro {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--color-tinta-suave);
+  }
+  .rastro a {
+    color: var(--color-tinta-suave);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .rastro a:hover {
+    border-bottom-color: var(--color-borde);
+  }
+
+  /* Tabla de datos tecnicos, en fichas de patron y de material. */
+  .datos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-borde);
+  }
+  .datos dt {
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-tinta-suave);
+  }
+  .datos dd {
+    margin: 0.25rem 0 0;
+    font-size: 1.125rem;
+  }
+}
+
+/*
+ * Botones. Viven aca (no como <style> de Boton.astro) por la misma razon
+ * que paginas.css: deben aplicar tambien a elementos <button> escritos a
+ * mano fuera del componente Boton (como el submit del formulario de
+ * cotizacion), y un <style> con alcance de Astro solo alcanza al marcado
+ * que el propio componente renderiza.
+ */
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.6rem;
+    font: inherit;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .btn--primario {
+    background-color: var(--color-bosque);
+    color: #fff;
+  }
+  .btn--primario:hover {
+    background-color: var(--color-bosque-hover);
+  }
+
+  .btn--secundario {
+    background-color: transparent;
+    color: var(--color-tinta);
+    border: 1px solid var(--color-borde);
+  }
+  .btn--secundario:hover {
+    border-color: var(--color-bosque);
+    color: var(--color-bosque);
+  }
+
+  .btn--texto {
+    padding: 0.25rem 0;
+    color: var(--color-bosque);
+    border-bottom: 1px solid var(--color-borde);
+    border-radius: 0;
+  }
+  .btn--texto:hover {
+    border-bottom-color: var(--color-bosque);
+  }
+}

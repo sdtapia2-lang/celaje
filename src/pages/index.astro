@@ -1,0 +1,228 @@
+---
+import Base from '../layouts/Base.astro';
+import PatronJaali from '../components/PatronJaali.astro';
+import Boton from '../components/Boton.astro';
+import { TAGLINE } from '../config/marca';
+import { APLICACIONES, MATERIALES, PATRONES_DESTACADOS } from '../config/contenido';
+
+const pasos = [
+  {
+    n: '01',
+    titulo: 'Se traza',
+    texto:
+      'Todo patron nace de una reticula oculta. Sobre ella se levanta el trazado con regla y ' +
+      'compas, como se hace desde hace mil anos. No partimos de un dibujo prestado: partimos ' +
+      'de la geometria que lo genera.',
+  },
+  {
+    n: '02',
+    titulo: 'Se ajusta al vano',
+    texto:
+      'El patron se escala y se recorta a tus medidas exactas para que el dibujo cierre bien ' +
+      'en los bordes. Un panel estandar recortado deja el patron partido a la mitad; uno ' +
+      'trazado a medida, no.',
+  },
+  {
+    n: '03',
+    titulo: 'Se corta y se lija',
+    texto:
+      'La fresadora CNC sigue el trazado con precision de decimas de milimetro. Despues viene ' +
+      'lo que ninguna maquina hace: lijar a mano el canto de cada calado, que es donde de ' +
+      'verdad se nota si una celosia esta bien hecha.',
+  },
+];
+
+const interior = MATERIALES.filter((m) => m.ubicacion === 'interior');
+const exterior = MATERIALES.filter((m) => m.ubicacion === 'exterior');
+---
+
+<Base
+  titulo="Celosias de madera a medida"
+  descripcion="Celosias y quiebravistas de madera cortados en CNC, con geometria islamica trazada a mano. A la medida exacta de tu vano. Santiago, Chile."
+>
+  <section class="inicio-hero">
+    <div class="inicio-hero__luz">
+      <PatronJaali patron="khatam-andalusi" escala={210} sombra />
+    </div>
+
+    <div class="contenedor inicio-hero__cuerpo">
+      <p class="inicio-hero__antetitulo">Celosias jaali a medida &middot; Santiago</p>
+      <h1 class="inicio-hero__titulo">{TAGLINE}</h1>
+      <p class="inicio-hero__bajada medida-lectura">
+        Paneles calados en madera, cortados en CNC a la medida exacta de tu vano. No tapan:
+        filtran. Cortan la vista y el sol de la tarde, y dejan pasar la luz y el aire.
+      </p>
+      <div class="inicio-hero__acciones">
+        <Boton href="/cotizar">Cotizar mi celosia</Boton>
+        <Boton href="/disenos" variante="secundario">Ver los disenos</Boton>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="etiqueta">Como se hace</p>
+      <h2 class="titulo-seccion medida-lectura">Un patron no se copia. Se construye.</h2>
+      <p class="bajada medida-lectura">
+        La diferencia entre una celosia y un enrejado repetido esta en el trazado. El nuestro
+        sigue el metodo historico de construccion del patron islamico, aprendido donde se ensena.
+      </p>
+
+      <ol class="inicio-pasos">
+        {
+          pasos.map((p) => (
+            <li class="inicio-paso">
+              <span class="inicio-paso__n">{p.n}</span>
+              <h3 class="inicio-paso__titulo">{p.titulo}</h3>
+              <p class="inicio-paso__texto">{p.texto}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="seccion seccion--crema">
+    <div class="contenedor">
+      <p class="etiqueta">Donde va</p>
+      <h2 class="titulo-seccion">Cinco maneras de usar una celosia</h2>
+
+      <ul class="inicio-apps">
+        {
+          APLICACIONES.map((a) => (
+            <li class="app">
+              <a href={`/aplicaciones/${a.slug}`} class="inicio-app__enlace">
+                <div class="inicio-app__trama">
+                  <PatronJaali
+                    patron={a.patronSugerido}
+                    escala={66}
+                    color="var(--color-bosque)"
+                    opacidad={0.7}
+                    class="app__patron"
+                  />
+                </div>
+                <div class="inicio-app__texto">
+                  <h3 class="inicio-app__titulo">{a.nombre}</h3>
+                  <p class="inicio-app__resumen">{a.resumen}</p>
+                  <span class="inicio-app__mas">
+                    {a.ubicacion === 'exterior'
+                      ? 'Exterior'
+                      : a.ubicacion === 'interior'
+                        ? 'Interior'
+                        : 'Interior y exterior'}
+                  </span>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="etiqueta">Disenos</p>
+      <h2 class="titulo-seccion">Del mas luminoso al mas ornamental</h2>
+      <p class="bajada medida-lectura">
+        Cada patron tiene un porcentaje de calado distinto, y eso define cuanta luz deja pasar y
+        cuanta sombra dibuja. Las cifras son medidas sobre la geometria, no aproximadas.
+      </p>
+
+      <ul class="inicio-patrones">
+        {
+          PATRONES_DESTACADOS.map((p) => (
+            <li class="pat">
+              <a href={`/disenos/${p.slug}`} class="inicio-pat__enlace">
+                <div class="inicio-pat__muestra">
+                  <PatronJaali patron={p.slug} escala={128} color="var(--color-tinta)" class="pat__patron" />
+                </div>
+                <h3 class="inicio-pat__titulo">{p.nombre}</h3>
+                <dl class="inicio-pat__datos">
+                  <div>
+                    <dt>Calado</dt>
+                    <dd>{p.caladoPct}%</dd>
+                  </div>
+                  <div>
+                    <dt>Modulo</dt>
+                    <dd>{p.moduloMm} mm</dd>
+                  </div>
+                  <div>
+                    <dt>Tira</dt>
+                    <dd>{p.tiraMm} mm</dd>
+                  </div>
+                </dl>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="inicio-seccion__pie">
+        <Boton href="/disenos" variante="texto">Ver los cinco disenos</Boton>
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion seccion--crema">
+    <div class="contenedor inicio-mat">
+      <div class="mat__intro">
+        <p class="etiqueta">Materiales</p>
+        <h2 class="titulo-seccion">Adentro o afuera</h2>
+        <p class="bajada">
+          En una celosia el grueso del costo esta en el mecanizado, no en la plancha. Por eso
+          pasar a un material apto para exterior encarece mucho menos de lo que se suele suponer:
+          si el panel va afuera, no tiene sentido arriesgarse con uno de interior.
+        </p>
+        <Boton href="/materiales" variante="texto">Comparar los seis materiales</Boton>
+      </div>
+
+      <div class="inicio-mat__cols">
+        <div class="inicio-mat__col">
+          <h3 class="inicio-mat__titulo">Interior</h3>
+          <ul>
+            {
+              interior.map((m) => (
+                <li>
+                  <b>{m.nombre}</b>
+                  <span>{m.resumen}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="inicio-mat__col">
+          <h3 class="inicio-mat__titulo">Exterior</h3>
+          <ul>
+            {
+              exterior.map((m) => (
+                <li>
+                  <b>{m.nombre}</b>
+                  <span>{m.resumen}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="inicio-cierre">
+    <PatronJaali
+      patron="roseta-de-doce"
+      escala={200}
+      color="var(--color-arena)"
+      opacidad={0.12}
+      class="cierre__trama"
+    />
+    <div class="contenedor inicio-cierre__cuerpo">
+      <h2 class="inicio-cierre__titulo">Contanos que vano tenes</h2>
+      <p class="inicio-cierre__bajada medida-lectura">
+        Con las medidas y una foto del lugar te respondemos con una propuesta concreta: patron,
+        material, terminacion y plazo. Sin compromiso.
+      </p>
+      <Boton href="/cotizar">Pedir cotizacion</Boton>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,23 @@
+---
+/**
+ * Las clases .btn / .btn--* viven en global.css, no en un <style> local:
+ * deben aplicar tambien a elementos <button> escritos a mano fuera de este
+ * componente (el submit de /cotizar), y un <style> con alcance de Astro
+ * solo alcanza al marcado que el propio componente renderiza.
+ *
+ * Accion primaria = bosque con texto blanco (11.95:1). La terracota plana no
+ * alcanza contraste para llevar texto, por eso la variante usa el token
+ * `terracota-accion`, la version oscurecida hasta 4.51:1.
+ * Ver scripts/verificar-contraste.mjs.
+ */
+interface Props {
+  href: string;
+  variante?: 'primario' | 'secundario' | 'texto';
+  class?: string;
+}
+const { href, variante = 'primario', class: clase } = Astro.props;
+---
+
+<a href={href} class:list={['btn', `btn--${variante}`, clase]}>
+  <slot />
+</a>

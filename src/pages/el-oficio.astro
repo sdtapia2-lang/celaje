@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import PatronJaali from '../components/PatronJaali.astro';
+import Boton from '../components/Boton.astro';
+import fotoPrototipo from '../assets/prototipo-taller.jpeg';
+
+const hitos = [
+  {
+    titulo: 'La reticula',
+    texto:
+      'Todo patron parte de una reticula geometrica -- cuadrada, hexagonal, de octagonos -- que ' +
+      'no se ve en la pieza terminada pero que ordena cada linea de corte. Elegir la reticula es ' +
+      'la primera decision de diseno, no la ultima.',
+  },
+  {
+    titulo: 'El angulo de contacto',
+    texto:
+      'Sobre esa reticula se traza el patron con un metodo que se remonta a los tratados persas ' +
+      'de gereh: en el punto medio de cada arista se lanzan dos lineas a un mismo angulo, y el ' +
+      'patron nace de donde esas lineas se cruzan entre si.',
+  },
+  {
+    titulo: 'La proporcion',
+    texto:
+      'La raiz de tres, la reticula isometrica, la construccion del arco -- son las herramientas ' +
+      'con las que los patrones historicos se ajustan a un espacio real sin perder su logica ' +
+      'interna. Es la parte del oficio que mas tiempo toma aprender.',
+  },
+];
+---
+
+<Base
+  titulo="El oficio"
+  descripcion="Cómo se traza un patrón jaali: subgrid, ángulo de contacto y proporción. El método detrás de cada celosía, antes de que la CNC corte una sola línea."
+  mensajeWhatsapp="Hola, quiero saber más sobre cómo trabajan los diseños."
+>
+  <section class="seccion">
+    <div class="contenedor oficio-intro">
+      <p class="rastro"><a href="/">Inicio</a> / El oficio</p>
+      <p class="etiqueta">El oficio</p>
+      <h1 class="titulo-seccion medida-lectura">Un patrón no se copia. Se construye.</h1>
+      <p class="bajada medida-lectura">
+        Cualquiera puede repetir un dibujo. La diferencia entre una celosía y un enrejado
+        decorativo está en si quien la hizo entiende la geometría que hay debajo, o solo copió el
+        resultado. Nosotros aprendimos a construirla.
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion seccion--crema">
+    <div class="contenedor">
+      <ol class="oficio-hitos">
+        {
+          hitos.map((h, i) => (
+            <li class="oficio-hito">
+              <span class="oficio-hito__n">{String(i + 1).padStart(2, '0')}</span>
+              <h2 class="oficio-hito__titulo">{h.titulo}</h2>
+              <p class="oficio-hito__texto">{h.texto}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="seccion foto-seccion">
+    <div class="contenedor oficio-foto-grid">
+      <figure class="oficio-foto">
+        <Image src={fotoPrototipo} alt="Primer prototipo del taller: panel de terciado recién cortado en CNC, apoyado contra la pared del taller, sin lijar." widths={[480, 800, 1200]} sizes="(min-width: 860px) 45vw, 90vw" loading="eager" />
+        <figcaption>El primer prototipo, recién salido de la fresadora. Antes de lijar.</figcaption>
+      </figure>
+
+      <div class="foto__texto medida-lectura">
+        <p class="etiqueta">Del trazado a la máquina</p>
+        <h2 class="titulo-seccion">La CNC corta lo que ya está resuelto en el plano</h2>
+        <p class="bajada">
+          Para cuando la fresadora empieza a cortar, el trabajo de diseño ya terminó: el patrón se
+          escaló al vano exacto, se resolvió el ancho de tira para que la pieza no se quiebre al
+          manipularla, y se verificó que la madera formara una sola pieza continua.
+        </p>
+        <p>
+          Lo que queda para el taller es la parte manual: lijar a mano el canto de cada calado,
+          que es donde de verdad se nota si una celosía está bien terminada o apenas cortada.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="oficio-cierre">
+    <PatronJaali patron="estrella-de-seis" escala={150} color="var(--color-arena)" opacidad={0.12} />
+    <div class="contenedor oficio-cierre__cuerpo">
+      <h2 class="oficio-cierre__titulo">Tu vano, con esta misma lógica</h2>
+      <p class="oficio-cierre__bajada medida-lectura">
+        Contanos las medidas y te proponemos el patrón, el material y el plazo.
+      </p>
+      <Boton href="/cotizar">Cotizar</Boton>
+    </div>
+  </section>
+</Base>

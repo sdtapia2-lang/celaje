@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+import PatronJaali from '../../components/PatronJaali.astro';
+import Boton from '../../components/Boton.astro';
+import { PATRONES, APLICACIONES } from '../../config/contenido';
+
+export function getStaticPaths() {
+  return PATRONES.map((p) => ({ params: { slug: p.slug }, props: { patron: p } }));
+}
+
+const { patron } = Astro.props;
+
+// Aplicaciones que sugieren este patron por defecto, para cruzar el catalogo
+// con los usos reales sin duplicar la relacion en otro archivo.
+const usos = APLICACIONES.filter((a) => a.patronSugerido === patron.slug);
+
+const angulo = `${patron.anguloContacto}°`;
+---
+
+<Base
+  titulo={patron.nombre}
+  descripcion={`${patron.nombre}: ${patron.origen} Calado ${patron.caladoPct}%, módulo ${patron.moduloMm} mm.`}
+  mensajeWhatsapp={`Hola, quiero cotizar una celosía con el diseño ${patron.nombre}.`}
+>
+  <section class="seccion">
+    <div class="contenedor diseno-ficha">
+      <div class="ficha__texto">
+        <p class="rastro"><a href="/">Inicio</a> / <a href="/disenos">Diseños</a> / {patron.nombre}</p>
+        <h1 class="titulo-seccion">{patron.nombre}</h1>
+        <p class="bajada">{patron.origen}</p>
+
+        <dl class="datos diseno-ficha__datos">
+          <div><dt>Calado medido</dt><dd>{patron.caladoPct}%</dd></div>
+          <div><dt>Módulo</dt><dd>{patron.moduloMm} mm</dd></div>
+          <div><dt>Ancho de tira</dt><dd>{patron.tiraMm} mm</dd></div>
+          <div><dt>Ángulo de trazado</dt><dd>{angulo}</dd></div>
+        </dl>
+
+        <p class="diseno-ficha__nota">
+          El calado es la fracción de vano que queda abierta: se midió por muestreo sobre la
+          geometría real de este trazado, no se estimó a ojo. La tira es el ancho de madera que
+          separa dos calados; a menos de 14&nbsp;mm en terciado de 15&nbsp;mm la pieza se vuelve
+          frágil al manipularla, y este diseño la supera con margen.
+        </p>
+
+        {
+          usos.length > 0 && (
+            <div class="diseno-ficha__usos">
+              <h2 class="diseno-ficha__subtitulo">Dónde suele usarse</h2>
+              <ul>
+                {usos.map((a) => (
+                  <li>
+                    <a href={`/aplicaciones/${a.slug}`}>{a.nombre}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+
+        <div class="diseno-ficha__acciones">
+          <Boton href="/cotizar">Cotizar con este diseño</Boton>
+          <Boton href="/disenos" variante="secundario">Ver otros diseños</Boton>
+        </div>
+      </div>
+
+      <div class="diseno-ficha__muestra">
+        <PatronJaali patron={patron.slug} escala={220} color="var(--color-tinta)" />
+      </div>
+    </div>
+  </section>
+</Base>

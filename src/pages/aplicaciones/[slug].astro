@@ -1,0 +1,82 @@
+---
+import Base from '../../layouts/Base.astro';
+import PatronJaali from '../../components/PatronJaali.astro';
+import Boton from '../../components/Boton.astro';
+import { APLICACIONES, patronPorSlug, materialPorSlug } from '../../config/contenido';
+
+export function getStaticPaths() {
+  return APLICACIONES.map((a) => ({ params: { slug: a.slug }, props: { aplicacion: a } }));
+}
+
+const { aplicacion } = Astro.props;
+const patron = patronPorSlug(aplicacion.patronSugerido);
+const material = materialPorSlug(aplicacion.materialSugerido);
+---
+
+<Base
+  titulo={aplicacion.titulo}
+  descripcion={aplicacion.resumen}
+  mensajeWhatsapp={`Hola, quiero cotizar una celosía para ${aplicacion.nombre.toLowerCase()}.`}
+>
+  <section class="aplicacion-hero">
+    <PatronJaali
+      patron={aplicacion.patronSugerido}
+      escala={160}
+      color="var(--color-tinta)"
+      opacidad={0.12}
+      sombra
+    />
+    <div class="contenedor aplicacion-hero__cuerpo">
+      <p class="rastro"><a href="/">Inicio</a> / <a href="/aplicaciones">Aplicaciones</a> / {aplicacion.nombre}</p>
+      <p class="etiqueta">
+        {aplicacion.ubicacion === 'exterior' ? 'Exterior' : aplicacion.ubicacion === 'interior' ? 'Interior' : 'Interior y exterior'}
+      </p>
+      <h1 class="titulo-seccion aplicacion-hero__titulo">{aplicacion.titulo}</h1>
+      <p class="bajada medida-lectura">{aplicacion.resumen}</p>
+      <div class="aplicacion-hero__acciones">
+        <Boton href={`/cotizar?aplicacion=${aplicacion.slug}`}>Cotizar para {aplicacion.nombre.toLowerCase()}</Boton>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor aplicacion-cuerpo">
+      <div class="aplicacion-cuerpo__texto medida-lectura">
+        {aplicacion.cuerpo.map((parrafo) => <p>{parrafo}</p>)}
+
+        <h2 class="aplicacion-cuerpo__subtitulo">A tener en cuenta</h2>
+        <ul class="aplicacion-consideraciones">
+          {aplicacion.consideraciones.map((c) => <li>{c}</li>)}
+        </ul>
+      </div>
+
+      <aside class="aplicacion-ficha">
+        <h2 class="aplicacion-ficha__titulo">Punto de partida sugerido</h2>
+
+        {patron && (
+          <a href={`/disenos/${patron.slug}`} class="aplicacion-ficha__patron">
+            <div class="aplicacion-ficha__muestra">
+              <PatronJaali patron={patron.slug} escala={90} color="var(--color-tinta)" />
+            </div>
+            <div>
+              <p class="aplicacion-ficha__etq">Diseño</p>
+              <p class="aplicacion-ficha__valor">{patron.nombre}</p>
+            </div>
+          </a>
+        )}
+
+        {material && (
+          <a href="/materiales" class="aplicacion-ficha__fila">
+            <p class="aplicacion-ficha__etq">Material</p>
+            <p class="aplicacion-ficha__valor">{material.nombre}</p>
+          </a>
+        )}
+
+        <p class="aplicacion-ficha__nota">
+          Es el punto de partida, no la única opción: en el formulario podés elegir cualquier
+          diseño o material del catálogo, o pedirnos que te recomendemos.
+        </p>
+      </aside>
+    </div>
+  </section>
+</Base>

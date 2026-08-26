@@ -1,0 +1,118 @@
+---
+import { NOMBRE, DESCRIPTOR, EMAIL_TALLER, CIUDAD, PAIS, whatsappUrl } from '../config/marca';
+import { NAVEGACION, APLICACIONES } from '../config/contenido';
+import PatronJaali from './PatronJaali.astro';
+
+const anio = new Date().getFullYear();
+---
+
+<footer class="pie">
+  <PatronJaali patron="estrella-de-seis" escala={130} color="var(--color-arena)" opacidad={0.1} class="pie__trama" />
+
+  <div class="contenedor pie__cuerpo">
+    <div class="pie__marca">
+      <span class="pie__nombre">{NOMBRE}</span>
+      <span class="pie__descriptor">{DESCRIPTOR}</span>
+      <p class="pie__lugar">{CIUDAD}, {PAIS}</p>
+    </div>
+
+    <nav class="pie__col" aria-label="Secciones">
+      <h2 class="pie__titulo">Sitio</h2>
+      {NAVEGACION.map((i) => <a href={i.href}>{i.texto}</a>)}
+      <a href="/cotizar">Cotizar</a>
+    </nav>
+
+    <nav class="pie__col" aria-label="Aplicaciones">
+      <h2 class="pie__titulo">Aplicaciones</h2>
+      {APLICACIONES.map((a) => <a href={`/aplicaciones/${a.slug}`}>{a.nombre}</a>)}
+    </nav>
+
+    <div class="pie__col">
+      <h2 class="pie__titulo">Contacto</h2>
+      <a href={`mailto:${EMAIL_TALLER}`}>{EMAIL_TALLER}</a>
+      <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="contenedor pie__legal">
+    <p>&copy; {anio} {NOMBRE}. Celosias cortadas en CNC en {CIUDAD}.</p>
+  </div>
+</footer>
+
+<style>
+  .pie {
+    position: relative;
+    overflow: hidden;
+    margin-top: 6rem;
+    background-color: var(--color-bosque);
+    color: var(--color-hueso);
+  }
+
+  .pie__cuerpo {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: 2.5rem;
+    padding-block: 4rem 3rem;
+  }
+
+  .pie__nombre {
+    display: block;
+    font-family: var(--font-display);
+    font-variation-settings: 'SOFT' 25, 'WONK' 1, 'opsz' 48;
+    font-size: 1.75rem;
+    letter-spacing: 0.06em;
+  }
+  .pie__descriptor {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-arena);
+  }
+  .pie__lugar {
+    margin-top: 1.25rem;
+    color: var(--color-arena);
+    font-size: 0.9375rem;
+  }
+
+  .pie__col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .pie__titulo {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-arena);
+    margin-bottom: 0.35rem;
+  }
+  .pie__col a {
+    color: var(--color-hueso);
+    font-size: 0.9375rem;
+    text-decoration: none;
+    width: fit-content;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.18s ease;
+  }
+  .pie__col a:hover { border-bottom-color: var(--color-arena); }
+
+  .pie__legal {
+    position: relative;
+    padding-block: 1.5rem 2rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-arena) 25%, transparent);
+    font-size: 0.8125rem;
+    color: var(--color-arena);
+  }
+
+  @media (max-width: 900px) {
+    .pie__cuerpo { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+  @media (max-width: 560px) {
+    .pie__cuerpo { grid-template-columns: 1fr; }
+  }
+</style>

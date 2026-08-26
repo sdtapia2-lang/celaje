@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+import Encabezado from '../components/Encabezado.astro';
+import PieDePagina from '../components/PieDePagina.astro';
+import BotonWhatsApp from '../components/BotonWhatsApp.astro';
+import { NOMBRE, DESCRIPTOR, DESCRIPCION_META, SITIO, CIUDAD, PAIS, EMAIL_TALLER } from '../config/marca';
+
+interface Props {
+  titulo: string;
+  descripcion?: string;
+  /** Mensaje prellenado del boton de WhatsApp, segun la pagina. */
+  mensajeWhatsapp?: string;
+}
+
+const { titulo, descripcion = DESCRIPCION_META, mensajeWhatsapp } = Astro.props;
+
+const tituloCompleto = `${titulo} | ${NOMBRE}`;
+const canonica = new URL(Astro.url.pathname, Astro.site ?? SITIO);
+
+const datosEstructurados = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: NOMBRE,
+  description: DESCRIPCION_META,
+  url: SITIO,
+  email: EMAIL_TALLER,
+  address: { '@type': 'PostalAddress', addressLocality: CIUDAD, addressCountry: PAIS },
+  areaServed: PAIS,
+  slogan: DESCRIPTOR,
+};
+---
+
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonica} />
+
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descripcion} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={NOMBRE} />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:locale" content="es_CL" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(datosEstructurados)} />
+  </head>
+
+  <body>
+    <a href="#contenido" class="saltar">Saltar al contenido</a>
+    <Encabezado />
+    <main id="contenido">
+      <slot />
+    </main>
+    <PieDePagina />
+    <BotonWhatsApp mensaje={mensajeWhatsapp} />
+
+    <style>
+      .saltar {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        z-index: 100;
+        padding: 0.75rem 1.25rem;
+        background-color: var(--color-bosque);
+        color: #fff;
+        text-decoration: none;
+      }
+      .saltar:focus {
+        left: 0.5rem;
+        top: 0.5rem;
+      }
+    </style>
+  </body>
+</html>
