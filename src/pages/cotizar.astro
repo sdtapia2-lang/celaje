@@ -8,13 +8,13 @@ const aplicacionValida = APLICACIONES.some((a) => a.slug === aplicacionUrl) ? ap
 
 <Base
   titulo="Cotizar"
-  descripcion="Pedí tu cotización de celosía a medida. Contanos las medidas y te respondemos con diseño, material y plazo."
+  descripcion="Pide tu cotización de celosía a medida. Cuéntanos las medidas y te respondemos con diseño, material y plazo."
 >
   <section class="seccion seccion--compacta">
     <div class="contenedor cotizar-intro">
       <p class="rastro"><a href="/">Inicio</a> / Cotizar</p>
       <p class="etiqueta">Cotización</p>
-      <h1 class="titulo-seccion">Contanos qué vano tenés</h1>
+      <h1 class="titulo-seccion">Cuéntanos qué vano tienes</h1>
       <p class="bajada medida-lectura">
         Con las medidas y una foto del lugar te respondemos con una propuesta concreta: diseño,
         material, terminación y plazo. Sin compromiso.
@@ -34,7 +34,7 @@ const aplicacionValida = APLICACIONES.some((a) => a.slug === aplicacionUrl) ? ap
         </div>
 
         <fieldset class="cotizar-grupo">
-          <legend>Quién sos</legend>
+          <legend>Quién eres</legend>
           <div class="cotizar-fila cotizar-fila--3">
             <div class="cotizar-campo">
               <label for="nombre">Nombre *</label>
@@ -51,7 +51,7 @@ const aplicacionValida = APLICACIONES.some((a) => a.slug === aplicacionUrl) ? ap
           </div>
           <div class="cotizar-fila cotizar-fila--2">
             <div class="cotizar-campo">
-              <label for="tipoCliente">Sos... *</label>
+              <label for="tipoCliente">Eres... *</label>
               <select id="tipoCliente" name="tipoCliente" required>
                 <option value="hogar">Particular / hogar</option>
                 <option value="arquitecto">Arquitecto o diseñador</option>
@@ -66,7 +66,7 @@ const aplicacionValida = APLICACIONES.some((a) => a.slug === aplicacionUrl) ? ap
         </fieldset>
 
         <fieldset class="cotizar-grupo">
-          <legend>Qué necesitás</legend>
+          <legend>Qué necesitas</legend>
           <div class="cotizar-campo">
             <label for="aplicacion">Aplicación</label>
             <select id="aplicacion" name="aplicacion">

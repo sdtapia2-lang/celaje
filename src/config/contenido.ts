@@ -109,7 +109,7 @@ export const APLICACIONES: Aplicacion[] = [
     consideraciones: [
       'Se despieza segun la modulacion de la subestructura, no al reves.',
       'Requiere definir fijacion, dilatacion y tolerancia de montaje en obra.',
-      'Para proyectos con especificacion tecnica, escribinos con los planos.',
+      'Para proyectos con especificacion tecnica, escríbenos con los planos.',
     ],
   },
   {
@@ -181,11 +181,13 @@ export const MATERIALES: Material[] = [
     espesorMm: 15,
     ubicacion: 'interior',
     nivelCosto: 1,
-    resumen: 'La entrada al catalogo. Buen resultado en interior seco, con nudos a la vista.',
+    resumen: 'La entrada al catalogo. Requiere lijado manual mas intenso: no es la opcion para calados finos.',
     detalle:
-      'Es el mas economico y funciona bien cuando el panel se va a pintar o cuando los nudos ' +
-      'suman al caracter de la pieza. No sirve para exterior ni para banos: el encolado no ' +
-      'resiste humedad sostenida.',
+      'Es el mas economico, pero en las pruebas de corte reales astilla y levanta fibra en el ' +
+      'canto del calado, sobre todo en trazados finos. Eso significa mas lijado a mano, mas ' +
+      'tiempo de taller y mayor variabilidad en el acabado. Funciona si el panel se va a pintar ' +
+      'y el patron es de tira ancha; para calados finos o piezas a la vista, mejor terciado de ' +
+      'muebleria. No sirve para exterior ni para banos: el encolado no resiste humedad sostenida.',
   },
   {
     slug: 'terciado-muebleria',
@@ -194,11 +196,12 @@ export const MATERIALES: Material[] = [
     ubicacion: 'interior',
     nivelCosto: 2,
     recomendado: true,
-    resumen: 'Cara limpia y canto parejo. El estandar para interior a la vista.',
+    resumen: 'Cara limpia y canto parejo. El estandar para interior a la vista y calados finos.',
     detalle:
       'Mejor seleccion de chapa que el estandar: menos nudos, menos vacios internos y un canto ' +
-      'que queda limpio despues del lijado. Es el que recomendamos cuando la madera se ve, ' +
-      'porque en una celosia el canto del calado queda expuesto en toda su longitud.',
+      'que astilla mucho menos al corte, por lo que el lijado final es mas rapido y parejo. Es ' +
+      'el que recomendamos cuando la madera se ve, porque en una celosia el canto del calado ' +
+      'queda expuesto en toda su longitud.',
   },
   {
     slug: 'terciado-marino',
