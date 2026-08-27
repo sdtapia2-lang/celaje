@@ -1,15 +1,15 @@
 /*
- * Estilos especificos de cada pagina, consolidados aqui e
+ * Estilos específicos de cada página, consolidados aquí e
  * importados desde global.css.
  *
- * Motivo: en esta version de Astro/Vite, el CSS de un <style> con
+ * Motivo: en esta versión de Astro/Vite, el CSS de un <style> con
  * alcance definido en un archivo de src/pages/*.astro que NO es
- * index.astro no se emite en el build estatico -- se verifico con
- * una pagina de prueba minima y con una importacion de .css plano,
- * ambas reproducen la falla igual. El unico grafo de modulos que
+ * index.astro no se emite en el build estático -- se verificó con
+ * una página de prueba mínima y con una importación de .css plano,
+ * ambas reproducen la falla igual. El único grafo de módulos que
  * build/Vite enlaza de forma confiable a TODAS las rutas es el que
- * cuelga de Base.astro, asi que las reglas de cada pagina viven aca,
- * prefijadas por pagina para que no choquen entre si.
+ * cuelga de Base.astro, así que las reglas de cada página viven acá,
+ * prefijadas por página para que no choquen entre sí.
  */
 
 /* ===== inicio (index.astro) ===== */

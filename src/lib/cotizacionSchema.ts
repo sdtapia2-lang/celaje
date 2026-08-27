@@ -1,16 +1,16 @@
 /**
- * Validacion del formulario de cotizacion. Se usa en el endpoint de
- * servidor -- la unica validacion que importa, porque el navegador puede
+ * Validación del formulario de cotización. Se usa en el endpoint de
+ * servidor -- la única validación que importa, porque el navegador puede
  * mandar cualquier cosa sin pasar por el formulario.
  */
 import { z } from 'zod';
 
 export const ADJUNTO_TIPOS = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'] as const;
-export const ADJUNTO_MAX_BYTES = 10 * 1024 * 1024; // 10 MB, igual al limite del bucket
+export const ADJUNTO_MAX_BYTES = 10 * 1024 * 1024; // 10 MB, igual al límite del bucket
 
 export const cotizacionSchema = z.object({
   nombre: z.string().trim().min(2, 'Falta el nombre').max(120),
-  email: z.email('Email invalido'),
+  email: z.email('Email inválido'),
   telefono: z.string().trim().max(40).optional().or(z.literal('')),
   tipoCliente: z.enum(['hogar', 'arquitecto', 'comercio']),
   comuna: z.string().trim().max(80).optional().or(z.literal('')),
@@ -28,8 +28,8 @@ export const cotizacionSchema = z.object({
 
   origen: z.string().trim().max(120).optional().or(z.literal('')),
 
-  // Antispam: honeypot debe llegar vacio; el formulario tarda un minimo
-  // en llenarse a mano, asi que un envio en menos de ese tiempo es un bot.
+  // Antispam: honeypot debe llegar vacío; el formulario tarda un mínimo
+  // en llenarse a mano, así que un envío en menos de ese tiempo es un bot.
   sitioWeb: z.string().max(0, 'Solicitud rechazada').optional().or(z.literal('')),
   tiempoLlenadoSeg: z.coerce.number().min(0).optional(),
 });

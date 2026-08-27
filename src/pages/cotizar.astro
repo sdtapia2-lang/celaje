@@ -173,7 +173,7 @@ const aplicacionValida = APLICACIONES.some((a) => a.slug === aplicacionUrl) ? ap
       const cuerpo = await respuesta.json();
 
       if (!respuesta.ok || !cuerpo.ok) {
-        throw new Error(cuerpo.error || 'No se pudo enviar. Probá de nuevo.');
+        throw new Error(cuerpo.error || 'No se pudo enviar. Prueba de nuevo.');
       }
 
       form.hidden = true;
@@ -182,7 +182,7 @@ const aplicacionValida = APLICACIONES.some((a) => a.slug === aplicacionUrl) ? ap
     } catch (error) {
       boton.disabled = false;
       boton.textContent = 'Enviar cotización';
-      estado.textContent = error instanceof Error ? error.message : 'Ocurrió un error. Probá de nuevo.';
+      estado.textContent = error instanceof Error ? error.message : 'Ocurrió un error. Prueba de nuevo.';
       estado.className = 'cotizar-error';
     }
   });

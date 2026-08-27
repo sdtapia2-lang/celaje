@@ -1,17 +1,17 @@
 /**
- * Genera la biblioteca de patrones: un SVG teselable por patron mas un JSON
- * con sus datos tecnicos.
+ * Genera la biblioteca de patrones: un SVG teselable por patrón más un JSON
+ * con sus datos técnicos.
  *
- * Nada aqui es decorativo por casualidad. Cada patron se elige por dos
- * criterios de fabricacion medidos sobre la geometria, no estimados:
+ * Nada aquí es decorativo por casualidad. Cada patrón se elige por dos
+ * criterios de fabricación medidos sobre la geometría, no estimados:
  *
- *  1. CONECTIVIDAD. La madera debe formar una sola pieza continua. Un patron
+ *  1. CONECTIVIDAD. La madera debe formar una sola pieza continua. Un patrón
  *     que se fragmenta produce trozos que se caen al terminar el corte. El
- *     barrido de angulos de contacto (scripts/analisis.mjs) descarto la
- *     mayoria de las combinaciones por esta razon.
- *  2. ANCHO DE TIRA. Se resuelve por biseccion el grosor que da el calado
+ *     barrido de ángulos de contacto (scripts/analisis.mjs) descartó la
+ *     mayoría de las combinaciones por esta razón.
+ *  2. ANCHO DE TIRA. Se resuelve por bisección el grosor que da el calado
  *     buscado, y se exige >= TIRA_MINIMA_MM: por debajo de eso el terciado
- *     de 15 mm se vuelve fragil al manipular la pieza.
+ *     de 15 mm se vuelve frágil al manipular la pieza.
  *
  *   npm run patrones
  */
@@ -45,38 +45,38 @@ const TES = {
  */
 const PATRONES = [
   {
-    slug: 'reticula-de-rombos', nombre: 'Reticula de rombos',
+    slug: 'reticula-de-rombos', nombre: 'Retícula de rombos',
     tesela: 'cuadrado', angulo: 45, moduloMm: 200, calado: 0.65,
     origen:
-      'El trazado mas elemental de la familia: los puntos medios de una cuadricula ' +
+      'El trazado más elemental de la familia: los puntos medios de una cuadrícula ' +
       'unidos entre si. Sin rosetas ni entrelazado, es el que menos cambios de ' +
-      'direccion pide a la fresadora y por eso el mas economico de mecanizar.',
+      'dirección pide a la fresadora y por eso el más económico de mecanizar.',
     destacado: false,
   },
   {
     slug: 'estrella-de-seis', nombre: 'Estrella de seis',
     tesela: 'hex', angulo: 60, moduloMm: 240, calado: 0.62,
     origen:
-      'Construida sobre reticula hexagonal. La estrella de seis puntas es de las ' +
-      'formas mas antiguas del repertorio y la mas luminosa del catalogo: deja ' +
-      'pasar mas luz que ninguna otra a igual ancho de tira.',
+      'Construida sobre retícula hexagonal. La estrella de seis puntas es de las ' +
+      'formas más antiguas del repertorio y la más luminosa del catálogo: deja ' +
+      'pasar más luz que ninguna otra a igual ancho de tira.',
     destacado: true,
   },
   {
-    slug: 'octogono-y-cruz', nombre: 'Octogono y cruz',
+    slug: 'octogono-y-cruz', nombre: 'Octógono y cruz',
     tesela: 'cuadrado', angulo: 22.5, moduloMm: 210, calado: 0.58,
     origen:
-      'Octagonos regulares separados por pequenas cruces. Aparece igual en la ' +
-      'carpinteria mudejar y en el azulejo, y su tira ancha lo hace el mas ' +
+      'Octógonos regulares separados por pequeñas cruces. Aparece igual en la ' +
+      'carpintería mudéjar y en el azulejo, y su tira ancha lo hace el más ' +
       'resistente de todos: el indicado para vanos grandes o exterior expuesto.',
     destacado: false,
   },
   {
-    slug: 'khatam-andalusi', nombre: 'Khatam andalusi',
+    slug: 'khatam-andalusi', nombre: 'Khatam andalusí',
     tesela: '4.8.8', angulo: 45, moduloMm: 280, calado: 0.55,
     origen:
-      'Trazado sobre el teselado de octagonos y cuadrados, el que sostiene las ' +
-      'celosias de al-Andalus y del Magreb. Dibujo denso y de sombra muy grafica, ' +
+      'Trazado sobre el teselado de octógonos y cuadrados, el que sostiene las ' +
+      'celosías de al-Andalus y del Magreb. Dibujo denso y de sombra muy gráfica, ' +
       'la familia a la que pertenece el primer prototipo del taller.',
     destacado: true,
   },
@@ -84,7 +84,7 @@ const PATRONES = [
     slug: 'roseta-de-doce', nombre: 'Roseta de doce',
     tesela: '3.12.12', angulo: 75, moduloMm: 340, calado: 0.52,
     origen:
-      'Dodecagonos y triangulos. La roseta de doce puntas es el registro mas ' +
+      'Dodecágonos y triángulos. La roseta de doce puntas es el registro más ' +
       'ornamental del repertorio persa. Pide vanos amplios: bajo 1,5 m de ancho ' +
       'la estrella se corta y el dibujo no llega a leerse completo.',
     destacado: true,
@@ -93,9 +93,9 @@ const PATRONES = [
     slug: 'tabla-hexagonal', nombre: 'Tabla hexagonal',
     tesela: '3.6.3.6', angulo: 54, moduloMm: 260, calado: 0.57,
     origen:
-      'Trazado sobre el teselado trihexagonal, de triangulos y hexagonos ' +
-      'alternados: la construccion de la "tabla" de doble nivel del repertorio ' +
-      'mogol. Reparte la sombra en un entramado mas fino que el de la estrella ' +
+      'Trazado sobre el teselado trihexagonal, de triángulos y hexágonos ' +
+      'alternados: la construcción de la "tabla" de doble nivel del repertorio ' +
+      'mogol. Reparte la sombra en un entramado más fino que el de la estrella ' +
       'de seis, sobre la misma retícula hexagonal.',
     destacado: false,
   },

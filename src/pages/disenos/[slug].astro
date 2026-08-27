@@ -10,8 +10,8 @@ export function getStaticPaths() {
 
 const { patron } = Astro.props;
 
-// Aplicaciones que sugieren este patron por defecto, para cruzar el catalogo
-// con los usos reales sin duplicar la relacion en otro archivo.
+// Aplicaciones que sugieren este patrón por defecto, para cruzar el catálogo
+// con los usos reales sin duplicar la relación en otro archivo.
 const usos = APLICACIONES.filter((a) => a.patronSugerido === patron.slug);
 
 const angulo = `${patron.anguloContacto}°`;

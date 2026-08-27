@@ -115,8 +115,8 @@
 }
 
 /*
- * Ritmo de seccion compartido por todas las paginas. Vive aqui y no en cada
- * pagina porque los estilos con alcance de Astro obligarian a repetir estas
+ * Ritmo de sección compartido por todas las páginas. Vive aquí y no en cada
+ * página porque los estilos con alcance de Astro obligarían a repetir estas
  * mismas reglas seis veces, con seis oportunidades de que se desincronicen.
  */
 @layer components {
@@ -165,7 +165,7 @@
     border-bottom-color: var(--color-borde);
   }
 
-  /* Tabla de datos tecnicos, en fichas de patron y de material. */
+  /* Tabla de datos técnicos, en fichas de patrón y de material. */
   .datos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
@@ -187,10 +187,10 @@
 }
 
 /*
- * Botones. Viven aca (no como <style> de Boton.astro) por la misma razon
- * que paginas.css: deben aplicar tambien a elementos <button> escritos a
+ * Botones. Viven acá (no como <style> de Boton.astro) por la misma razón
+ * que paginas.css: deben aplicar también a elementos <button> escritos a
  * mano fuera del componente Boton (como el submit del formulario de
- * cotizacion), y un <style> con alcance de Astro solo alcanza al marcado
+ * cotización), y un <style> con alcance de Astro solo alcanza al marcado
  * que el propio componente renderiza.
  */
 @layer components {

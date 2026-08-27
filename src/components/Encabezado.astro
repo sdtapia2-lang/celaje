@@ -99,8 +99,8 @@ const activo = (href: string) => ruta === href || ruta.startsWith(href + '/');
   }
   .nav__cta:hover { background-color: var(--color-bosque-hover); }
 
-  /* Bajo 860px la navegacion pasa a una fila propia y hace scroll lateral,
-     que es mas honesto que esconderla tras un menu para solo cinco enlaces. */
+  /* Bajo 860px la navegación pasa a una fila propia y hace scroll lateral,
+     que es más honesto que esconderla tras un menú para solo cinco enlaces. */
   @media (max-width: 860px) {
     .cab__fila { flex-wrap: wrap; gap: 0.75rem; }
     .nav {

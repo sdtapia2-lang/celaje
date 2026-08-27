@@ -1,11 +1,11 @@
 /**
- * Construccion de patrones geometricos islamicos por el metodo de Hankin
+ * Construcción de patrones geométricos islámicos por el método de Hankin
  * (polygons-in-contact): sobre un teselado, en el punto medio de cada arista
- * se lanzan dos rayos simetricos a un angulo de contacto; cada rayo se corta
- * con el primer rayo que encuentra. La union de esos segmentos es el patron.
+ * se lanzan dos rayos simétricos a un ángulo de contacto; cada rayo se corta
+ * con el primer rayo que encuentra. La unión de esos segmentos es el patrón.
  *
- * Es el procedimiento historico real, no una aproximacion decorativa: cambiar
- * el teselado o el angulo produce las familias clasicas (khatam de ocho,
+ * Es el procedimiento histórico real, no una aproximación decorativa: cambiar
+ * el teselado o el ángulo produce las familias clásicas (khatam de ocho,
  * estrella de seis, roseta de doce).
  */
 
@@ -102,7 +102,7 @@ export function teseladoHexagonal(R = 1) {
   return { celda: [ancho, alto], poligonos };
 }
 
-/** 4.8.8 — octagonos y cuadrados. El teselado clasico del khatam andalusi. */
+/** 4.8.8 — octógonos y cuadrados. El teselado clásico del khatam andalusí. */
 export function tesela488(arista = 1) {
   const Roct = arista / (2 * Math.sin(Math.PI / 8));
   const s = arista * (1 + Math.SQRT2); // lado de la celda

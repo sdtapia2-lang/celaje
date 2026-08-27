@@ -1,9 +1,9 @@
 /**
  * Contenido estructurado del sitio: aplicaciones, materiales y terminaciones.
  *
- * Los materiales y su division interior/exterior salen del analisis de costos
- * del taller (Analisis de Costos/Costos de Materiales.xlsx). No se publican
- * precios: la decision fue cotizar todo caso a caso.
+ * Los materiales y su división interior/exterior salen del análisis de costos
+ * del taller (Análisis de Costos/Costos de Materiales.xlsx). No se publican
+ * precios: la decisión fue cotizar todo caso a caso.
  */
 
 import patronesJson from './patrones.json';
@@ -32,7 +32,7 @@ export const patronPorSlug = (slug: string) => PATRONES.find((p) => p.slug === s
 export interface Aplicacion {
   slug: string;
   nombre: string;
-  /** Titular de la pagina. Lleva el termino que la gente busca en Chile. */
+  /** Titular de la página. Lleva el término que la gente busca en Chile. */
   titulo: string;
   resumen: string;
   cuerpo: string[];
@@ -51,19 +51,19 @@ export const APLICACIONES: Aplicacion[] = [
       'Recupera la terraza sin cerrarla. El calado corta la vista del vecino y baja el sol ' +
       'de la tarde, pero deja pasar el aire y la luz.',
     cuerpo: [
-      'Un panel ciego te tapa la vista y te deja la terraza oscura y encajonada. Una celosia ' +
-      'hace lo contrario: bloquea la linea de vision directa desde el departamento de enfrente ' +
+      'Un panel ciego te tapa la vista y te deja la terraza oscura y encajonada. Una celosía ' +
+      'hace lo contrario: bloquea la línea de visión directa desde el departamento de enfrente ' +
       'y sigue ventilando.',
-      'Para exterior el material no es negociable: terciado marino de encolado fenolico o HDPE. ' +
-      'El terciado estandar y el MDF se delaminan con la primera lluvia y no los usamos afuera.',
+      'Para exterior el material no es negociable: terciado marino de encolado fenólico o HDPE. ' +
+      'El terciado estándar y el MDF se delaminan con la primera lluvia y no los usamos afuera.',
     ],
     ubicacion: 'exterior',
     materialSugerido: 'terciado-marino',
     patronSugerido: 'octogono-y-cruz',
     consideraciones: [
       'Separa el panel al menos 30 mm del muro para que ventile por las dos caras.',
-      'En terrazas con viento fuerte conviene bajar el calado: mas madera, mas rigidez.',
-      'Orientacion poniente: el patron de tira ancha da mas sombra a media tarde.',
+      'En terrazas con viento fuerte conviene bajar el calado: más madera, más rigidez.',
+      'Orientación poniente: el patrón de tira ancha da más sombra a media tarde.',
     ],
   },
   {
@@ -71,11 +71,11 @@ export const APLICACIONES: Aplicacion[] = [
     nombre: 'Biombo separador',
     titulo: 'Biombos y separadores de ambiente calados a medida',
     resumen:
-      'Divide sin levantar un muro. Separa el comedor del living, o crea un rincon de ' +
-      'escritorio, sin perder la sensacion de amplitud.',
+      'Divide sin levantar un muro. Separa el comedor del living, o crea un rincón de ' +
+      'escritorio, sin perder la sensación de amplitud.',
     cuerpo: [
-      'Es la aplicacion mas pedida en departamentos: el espacio unico necesita zonas, pero un ' +
-      'tabique solido lo achica y lo oscurece. La celosia marca el limite y deja pasar la luz ' +
+      'Es la aplicación más pedida en departamentos: el espacio único necesita zonas, pero un ' +
+      'tabique sólido lo achica y lo oscurece. La celosía marca el límite y deja pasar la luz ' +
       'de lado a lado.',
       'Al ser interior se abre todo el abanico de materiales y terminaciones, incluido el MDF ' +
       'pintado a color, que es el que mejor rinde cuando el panel tiene que integrarse a una ' +
@@ -86,43 +86,43 @@ export const APLICACIONES: Aplicacion[] = [
     patronSugerido: 'estrella-de-seis',
     consideraciones: [
       'Fijo del piso al cielo, o montado sobre base con pie si necesitas moverlo.',
-      'En interior conviene mas calado: entra mas luz y la pieza pesa menos.',
-      'Si va detras de una lampara, el patron proyecta su dibujo sobre el muro de enfrente.',
+      'En interior conviene más calado: entra más luz y la pieza pesa menos.',
+      'Si va detrás de una lámpara, el patrón proyecta su dibujo sobre el muro de enfrente.',
     ],
   },
   {
     slug: 'fachada-ventilada',
     nombre: 'Fachada ventilada',
-    titulo: 'Celosias para fachada ventilada y revestimiento exterior',
+    titulo: 'Celosías para fachada ventilada y revestimiento exterior',
     resumen:
-      'Piel exterior sobre subestructura. Suma control solar y caracter a la fachada sin ' +
+      'Piel exterior sobre subestructura. Suma control solar y carácter a la fachada sin ' +
       'intervenir la envolvente.',
     cuerpo: [
-      'La celosia se monta sobre perfileria separada del muro, dejando la camara de aire que ' +
-      'define una fachada ventilada. El calado regula cuanta radiacion llega al paramento.',
-      'Es la aplicacion mas exigente del catalogo y donde el material manda: aqui van HDPE o ' +
+      'La celosía se monta sobre perfilería separada del muro, dejando la cámara de aire que ' +
+      'define una fachada ventilada. El calado regula cuanta radiación llega al paramento.',
+      'Es la aplicación más exigente del catálogo y donde el material manda: aquí van HDPE o ' +
       'HPL, no madera. Trabajamos el despiece sobre los planos del proyecto.',
     ],
     ubicacion: 'exterior',
     materialSugerido: 'hdpe',
     patronSugerido: 'khatam-andalusi',
     consideraciones: [
-      'Se despieza segun la modulacion de la subestructura, no al reves.',
-      'Requiere definir fijacion, dilatacion y tolerancia de montaje en obra.',
-      'Para proyectos con especificacion tecnica, escríbenos con los planos.',
+      'Se despieza según la modulación de la subestructura, no al revés.',
+      'Requiere definir fijación, dilatación y tolerancia de montaje en obra.',
+      'Para proyectos con especificación técnica, escríbenos con los planos.',
     ],
   },
   {
     slug: 'cielo-decorativo',
     nombre: 'Cielo decorativo',
-    titulo: 'Cielos decorativos calados para locales y hoteleria',
+    titulo: 'Cielos decorativos calados para locales y hotelería',
     resumen:
-      'El plano que nadie usa. Un cielo calado con luz detras cambia por completo el caracter ' +
+      'El plano que nadie usa. Un cielo calado con luz detrás cambia por completo el carácter ' +
       'de un local sin tocar ni un muro.',
     cuerpo: [
-      'En restaurantes, hoteles y oficinas es la intervencion de mayor efecto por metro ' +
-      'cuadrado: se ve desde toda la sala y no compite con el mobiliario ni con la circulacion.',
-      'Con iluminacion indirecta por sobre el panel, el patron deja de ser un dibujo en la ' +
+      'En restaurantes, hoteles y oficinas es la intervención de mayor efecto por metro ' +
+      'cuadrado: se ve desde toda la sala y no compite con el mobiliario ni con la circulación.',
+      'Con iluminación indirecta por sobre el panel, el patrón deja de ser un dibujo en la ' +
       'madera y pasa a ser una figura de luz proyectada sobre el resto del espacio.',
     ],
     ubicacion: 'interior',
@@ -130,7 +130,7 @@ export const APLICACIONES: Aplicacion[] = [
     patronSugerido: 'roseta-de-doce',
     consideraciones: [
       'Deja al menos 150 mm entre el panel y la luminaria para que el dibujo se abra.',
-      'Los patrones de modulo grande se leen mejor mirados desde abajo y a distancia.',
+      'Los patrones de módulo grande se leen mejor mirados desde abajo y a distancia.',
       'Consulta la normativa de comportamiento al fuego del recinto antes de definir material.',
     ],
   },
@@ -139,19 +139,19 @@ export const APLICACIONES: Aplicacion[] = [
     nombre: 'Frentes de mueble',
     titulo: 'Puertas y frentes de mueble calados a medida',
     resumen:
-      'Closets, bares, muebles de television y despensas. El calado ventila el interior y ' +
+      'Closets, bares, muebles de televisión y despensas. El calado ventila el interior y ' +
       'convierte un frente plano en la pieza principal del ambiente.',
     cuerpo: [
-      'Es la escala mas chica y la de plazo mas corto. Sirve tanto para renovar un mueble ' +
-      'existente cambiandole solo las puertas, como para un proyecto de carpinteria nuevo.',
-      'En equipos de audio y video el calado no es solo estetico: deja respirar los aparatos y ' +
-      'permite que pase la senal de los controles remotos.',
+      'Es la escala más chica y la de plazo más corto. Sirve tanto para renovar un mueble ' +
+      'existente cambiándole solo las puertas, como para un proyecto de carpintería nuevo.',
+      'En equipos de audio y video el calado no es solo estético: deja respirar los aparatos y ' +
+      'permite que pase la señal de los controles remotos.',
     ],
     ubicacion: 'interior',
     materialSugerido: 'mdf',
     patronSugerido: 'reticula-de-rombos',
     consideraciones: [
-      'En modulos angostos conviene un patron de modulo chico para que el dibujo se lea entero.',
+      'En módulos angostos conviene un patrón de módulo chico para que el dibujo se lea entero.',
       'Se entrega perforado para bisagra si nos pasas el herraje que vas a usar.',
       'El MDF pintado es el que mejor iguala el color de una cocina o un closet existente.',
     ],
@@ -169,7 +169,7 @@ export interface Material {
   ubicacion: 'interior' | 'exterior';
   resumen: string;
   detalle: string;
-  /** Orden relativo de costo, 1 = mas economico. No es precio. */
+  /** Orden relativo de costo, 1 = más económico. No es precio. */
   nivelCosto: 1 | 2 | 3 | 4;
   recomendado?: boolean;
 }
@@ -177,30 +177,30 @@ export interface Material {
 export const MATERIALES: Material[] = [
   {
     slug: 'terciado-estandar',
-    nombre: 'Terciado estandar',
+    nombre: 'Terciado estándar',
     espesorMm: 15,
     ubicacion: 'interior',
     nivelCosto: 1,
-    resumen: 'La entrada al catalogo. Requiere lijado manual mas intenso: no es la opcion para calados finos.',
+    resumen: 'La entrada al catálogo. Requiere lijado manual más intenso: no es la opción para calados finos.',
     detalle:
-      'Es el mas economico, pero en las pruebas de corte reales astilla y levanta fibra en el ' +
-      'canto del calado, sobre todo en trazados finos. Eso significa mas lijado a mano, mas ' +
+      'Es el más económico, pero en las pruebas de corte reales astilla y levanta fibra en el ' +
+      'canto del calado, sobre todo en trazados finos. Eso significa más lijado a mano, más ' +
       'tiempo de taller y mayor variabilidad en el acabado. Funciona si el panel se va a pintar ' +
-      'y el patron es de tira ancha; para calados finos o piezas a la vista, mejor terciado de ' +
-      'muebleria. No sirve para exterior ni para banos: el encolado no resiste humedad sostenida.',
+      'y el patrón es de tira ancha; para calados finos o piezas a la vista, mejor terciado de ' +
+      'mueblería. No sirve para exterior ni para baños: el encolado no resiste humedad sostenida.',
   },
   {
     slug: 'terciado-muebleria',
-    nombre: 'Terciado de muebleria',
+    nombre: 'Terciado de mueblería',
     espesorMm: 15,
     ubicacion: 'interior',
     nivelCosto: 2,
     recomendado: true,
-    resumen: 'Cara limpia y canto parejo. El estandar para interior a la vista y calados finos.',
+    resumen: 'Cara limpia y canto parejo. El estándar para interior a la vista y calados finos.',
     detalle:
-      'Mejor seleccion de chapa que el estandar: menos nudos, menos vacios internos y un canto ' +
-      'que astilla mucho menos al corte, por lo que el lijado final es mas rapido y parejo. Es ' +
-      'el que recomendamos cuando la madera se ve, porque en una celosia el canto del calado ' +
+      'Mejor selección de chapa que el estándar: menos nudos, menos vacíos internos y un canto ' +
+      'que astilla mucho menos al corte, por lo que el lijado final es más rápido y parejo. Es ' +
+      'el que recomendamos cuando la madera se ve, porque en una celosía el canto del calado ' +
       'queda expuesto en toda su longitud.',
   },
   {
@@ -210,11 +210,11 @@ export const MATERIALES: Material[] = [
     ubicacion: 'exterior',
     nivelCosto: 2,
     recomendado: true,
-    resumen: 'Encolado fenolico. Es lo que permite sacar el panel afuera.',
+    resumen: 'Encolado fenólico. Es lo que permite sacar el panel afuera.',
     detalle:
-      'El salto desde el terciado estandar es pequeno en el total de la cotizacion, porque en ' +
-      'una celosia el grueso del costo es el mecanizado y no la plancha. Si el panel va a ' +
-      'exterior, esta es la eleccion evidente.',
+      'El salto desde el terciado estándar es pequeño en el total de la cotización, porque en ' +
+      'una celosía el grueso del costo es el mecanizado y no la plancha. Si el panel va a ' +
+      'exterior, esta es la elección evidente.',
   },
   {
     slug: 'mdf',
@@ -224,9 +224,9 @@ export const MATERIALES: Material[] = [
     nivelCosto: 1,
     resumen: 'Superficie sin veta, la mejor base para pintar a color.',
     detalle:
-      'No tiene veta ni nudos, asi que la pintura queda pareja y el color sale exacto. Es la ' +
-      'opcion cuando el panel debe integrarse a una paleta ya definida. Solo interior seco: ' +
-      'ante humedad se hincha y no vuelve atras.',
+      'No tiene veta ni nudos, así que la pintura queda pareja y el color sale exacto. Es la ' +
+      'opción cuando el panel debe integrarse a una paleta ya definida. Solo interior seco: ' +
+      'ante humedad se hincha y no vuelve atrás.',
   },
   {
     slug: 'hdpe',
@@ -234,10 +234,10 @@ export const MATERIALES: Material[] = [
     espesorMm: 15,
     ubicacion: 'exterior',
     nivelCosto: 3,
-    resumen: 'Polietileno de alta densidad. Cero mantencion a la intemperie.',
+    resumen: 'Polietileno de alta densidad. Cero mantención a la intemperie.',
     detalle:
       'No absorbe agua, no se delamina y no pide barniz nunca. Es lo indicado en fachada, ' +
-      'piscinas y cualquier punto de dificil acceso para mantener. Se trabaja en negro y ' +
+      'piscinas y cualquier punto de difícil acceso para mantener. Se trabaja en negro y ' +
       'entrega un canto mate muy limpio.',
   },
   {
@@ -246,11 +246,11 @@ export const MATERIALES: Material[] = [
     espesorMm: 12,
     ubicacion: 'exterior',
     nivelCosto: 4,
-    resumen: 'Laminado compacto de alta presion. El de mayor resistencia del catalogo.',
+    resumen: 'Laminado compacto de alta presión. El de mayor resistencia del catálogo.',
     detalle:
-      'Maxima estabilidad dimensional y resistencia al rayado, al impacto y al sol. Es el ' +
-      'material de fachada ventilada cuando el proyecto exige documentacion tecnica y una ' +
-      'vida util larga sin intervencion.',
+      'Máxima estabilidad dimensional y resistencia al rayado, al impacto y al sol. Es el ' +
+      'material de fachada ventilada cuando el proyecto exige documentación técnica y una ' +
+      'vida útil larga sin intervención.',
   },
 ];
 
@@ -263,22 +263,22 @@ export const TERMINACIONES = [
   },
   {
     nombre: 'Aceitado',
-    detalle: 'Aceite penetrante que realza la veta y deja tacto de madera, no de plastico.',
+    detalle: 'Aceite penetrante que realza la veta y deja tacto de madera, no de plástico.',
   },
   {
     nombre: 'Barnizado',
-    detalle: 'Capa de proteccion sobre la veta. Con filtro UV si el panel recibe sol directo.',
+    detalle: 'Capa de protección sobre la veta. Con filtro UV si el panel recibe sol directo.',
   },
   {
     nombre: 'Pintado',
-    detalle: 'Color a eleccion, incluido color de muestra. Rinde mejor sobre MDF.',
+    detalle: 'Color a elección, incluido color de muestra. Rinde mejor sobre MDF.',
   },
 ];
 
 /* ------------------------------ navegacion ----------------------------- */
 
 export const NAVEGACION = [
-  { href: '/disenos', texto: 'Disenos' },
+  { href: '/disenos', texto: 'Diseños' },
   { href: '/aplicaciones', texto: 'Aplicaciones' },
   { href: '/materiales', texto: 'Materiales' },
   { href: '/el-oficio', texto: 'El oficio' },

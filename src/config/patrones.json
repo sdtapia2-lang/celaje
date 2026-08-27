@@ -1,8 +1,8 @@
 [
   {
     "slug": "reticula-de-rombos",
-    "nombre": "Reticula de rombos",
-    "origen": "El trazado mas elemental de la familia: los puntos medios de una cuadricula unidos entre si. Sin rosetas ni entrelazado, es el que menos cambios de direccion pide a la fresadora y por eso el mas economico de mecanizar.",
+    "nombre": "Retícula de rombos",
+    "origen": "El trazado más elemental de la familia: los puntos medios de una cuadrícula unidos entre si. Sin rosetas ni entrelazado, es el que menos cambios de dirección pide a la fresadora y por eso el más económico de mecanizar.",
     "destacado": false,
     "teselado": "cuadrado",
     "anguloContacto": 45,
@@ -19,7 +19,7 @@
   {
     "slug": "estrella-de-seis",
     "nombre": "Estrella de seis",
-    "origen": "Construida sobre reticula hexagonal. La estrella de seis puntas es de las formas mas antiguas del repertorio y la mas luminosa del catalogo: deja pasar mas luz que ninguna otra a igual ancho de tira.",
+    "origen": "Construida sobre retícula hexagonal. La estrella de seis puntas es de las formas más antiguas del repertorio y la más luminosa del catálogo: deja pasar más luz que ninguna otra a igual ancho de tira.",
     "destacado": true,
     "teselado": "hex",
     "anguloContacto": 60,
@@ -35,8 +35,8 @@
   },
   {
     "slug": "octogono-y-cruz",
-    "nombre": "Octogono y cruz",
-    "origen": "Octagonos regulares separados por pequenas cruces. Aparece igual en la carpinteria mudejar y en el azulejo, y su tira ancha lo hace el mas resistente de todos: el indicado para vanos grandes o exterior expuesto.",
+    "nombre": "Octógono y cruz",
+    "origen": "Octógonos regulares separados por pequeñas cruces. Aparece igual en la carpintería mudéjar y en el azulejo, y su tira ancha lo hace el más resistente de todos: el indicado para vanos grandes o exterior expuesto.",
     "destacado": false,
     "teselado": "cuadrado",
     "anguloContacto": 22.5,
@@ -52,13 +52,13 @@
   },
   {
     "slug": "khatam-andalusi",
-    "nombre": "Khatam andalusi",
-    "origen": "Trazado sobre el teselado de octagonos y cuadrados, el que sostiene las celosias de al-Andalus y del Magreb. Dibujo denso y de sombra muy grafica, la familia a la que pertenece el primer prototipo del taller.",
+    "nombre": "Khatam andalusí",
+    "origen": "Trazado sobre el teselado de octógonos y cuadrados, el que sostiene las celosías de al-Andalus y del Magreb. Dibujo denso y de sombra muy gráfica, la familia a la que pertenece el primer prototipo del taller.",
     "destacado": true,
     "teselado": "4.8.8",
     "anguloContacto": 45,
     "moduloMm": 280,
-    "tiraMm": 34,
+    "tiraMm": 33,
     "caladoPct": 55,
     "celda": [
       2.4142,
@@ -70,7 +70,7 @@
   {
     "slug": "roseta-de-doce",
     "nombre": "Roseta de doce",
-    "origen": "Dodecagonos y triangulos. La roseta de doce puntas es el registro mas ornamental del repertorio persa. Pide vanos amplios: bajo 1,5 m de ancho la estrella se corta y el dibujo no llega a leerse completo.",
+    "origen": "Dodecágonos y triángulos. La roseta de doce puntas es el registro más ornamental del repertorio persa. Pide vanos amplios: bajo 1,5 m de ancho la estrella se corta y el dibujo no llega a leerse completo.",
     "destacado": true,
     "teselado": "3.12.12",
     "anguloContacto": 75,
@@ -87,7 +87,7 @@
   {
     "slug": "tabla-hexagonal",
     "nombre": "Tabla hexagonal",
-    "origen": "Trazado sobre el teselado trihexagonal, de triangulos y hexagonos alternados: la construccion de la \"tabla\" de doble nivel del repertorio mogol. Reparte la sombra en un entramado mas fino que el de la estrella de seis, sobre la misma retícula hexagonal.",
+    "origen": "Trazado sobre el teselado trihexagonal, de triángulos y hexágonos alternados: la construcción de la \"tabla\" de doble nivel del repertorio mogol. Reparte la sombra en un entramado más fino que el de la estrella de seis, sobre la misma retícula hexagonal.",
     "destacado": false,
     "teselado": "3.6.3.6",
     "anguloContacto": 54,
