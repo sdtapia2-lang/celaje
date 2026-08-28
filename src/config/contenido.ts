@@ -6,7 +6,11 @@
  * precios: la decisión fue cotizar todo caso a caso.
  */
 
+import type { ImageMetadata } from 'astro';
 import patronesJson from './patrones.json';
+import imagenTiposDeDisenos from '../assets/blog/tipos-de-disenos-jaali.png';
+import imagenJaaliEnDecoracion from '../assets/blog/jaali-en-decoracion-y-arquitectura.png';
+import imagenGuiaDeDiseno from '../assets/blog/guia-de-diseno-jaali.png';
 
 export interface Patron {
   slug: string;
@@ -284,6 +288,8 @@ export interface ArticuloBlog {
   fecha: string;
   tiempoLectura: string;
   cuerpo: string[];
+  imagen: ImageMetadata;
+  imagenAlt: string;
 }
 
 export const ARTICULOS_BLOG: ArticuloBlog[] = [
@@ -295,6 +301,8 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
       'relación entre calado y madera. Una guía para reconocerlos antes de elegir uno.',
     fecha: '2026-08-28',
     tiempoLectura: '6 min',
+    imagen: imagenTiposDeDisenos,
+    imagenAlt: 'Panel de celosía de madera con patrón geométrico hexagonal, luz natural proyectando su sombra en un muro claro.',
     cuerpo: [
       'Todo patrón Jaali se arma sobre una unidad que se repite: el módulo. Lo que cambia de un ' +
       'diseño a otro no es la técnica de corte, es la figura que se elige para teselar el plano ' +
@@ -328,6 +336,8 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
       'está tomando dentro de la casa y en proyectos de arquitectura interior.',
     fecha: '2026-08-28',
     tiempoLectura: '5 min',
+    imagen: imagenJaaliEnDecoracion,
+    imagenAlt: 'Living minimalista con un biombo de celosía de madera separando el comedor, luz de tarde filtrada por el calado.',
     cuerpo: [
       'La celosía nació resolviendo un problema de clima: ventilar sin exponer, sombrear sin ' +
       'oscurecer. Esa misma lógica se trasladó adentro de la casa y hoy se usa donde antes se ' +
@@ -359,6 +369,8 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
       'cada patrón calado. Una introducción antes de elegir el tuyo.',
     fecha: '2026-08-28',
     tiempoLectura: '7 min',
+    imagen: imagenGuiaDeDiseno,
+    imagenAlt: 'Detalle de una fachada ventilada con paneles de celosía de madera, luz cálida de atardecer marcando el relieve del calado.',
     cuerpo: [
       'Jaali (del hindi/urdu, "red" o "malla") es el nombre que reciben las celosías caladas en ' +
       'piedra o madera de la arquitectura del sur de Asia. Se usaron durante siglos en ventanas, ' +

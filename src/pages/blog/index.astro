@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
 import { ARTICULOS_BLOG } from '../../config/contenido';
 
 const formateador = new Intl.DateTimeFormat('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -24,6 +25,9 @@ const formateador = new Intl.DateTimeFormat('es-CL', { day: 'numeric', month: 'l
           ARTICULOS_BLOG.map((a) => (
             <li>
               <a href={`/blog/${a.slug}`} class="blog-tarjeta">
+                <div class="blog-tarjeta__imagen">
+                  <Image src={a.imagen} alt={a.imagenAlt} widths={[320, 480, 640]} sizes="(min-width: 860px) 30vw, 90vw" loading="lazy" />
+                </div>
                 <div class="blog-tarjeta__cuerpo">
                   <p class="blog-tarjeta__meta">
                     {formateador.format(new Date(`${a.fecha}T00:00:00`))} · {a.tiempoLectura}
