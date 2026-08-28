@@ -55,7 +55,7 @@ export const APLICACIONES: Aplicacion[] = [
       'Recupera la terraza sin cerrarla. El calado corta la vista del vecino y baja el sol ' +
       'de la tarde, pero deja pasar el aire y la luz.',
     cuerpo: [
-      'Un panel ciego te tapa la vista y te deja la terraza oscura y encajonada. Uno calado ' +
+      'Una pantalla ciega te tapa la vista y te deja la terraza oscura y encajonada. Una calada ' +
       'hace lo contrario: bloquea la línea de visión directa desde el departamento de enfrente ' +
       'y sigue ventilando.',
       'Para exterior el material no es negociable: terciado marino de encolado fenólico o HDPE. ' +
@@ -65,7 +65,7 @@ export const APLICACIONES: Aplicacion[] = [
     materialSugerido: 'terciado-marino',
     patronSugerido: 'octogono-y-cruz',
     consideraciones: [
-      'Separa el panel al menos 30 mm del muro para que ventile por las dos caras.',
+      'Separa la pantalla al menos 30 mm del muro para que ventile por las dos caras.',
       'En terrazas con viento fuerte conviene bajar el calado: más madera, más rigidez.',
       'Orientación poniente: el patrón de tira ancha da más sombra a media tarde.',
     ],
@@ -79,10 +79,10 @@ export const APLICACIONES: Aplicacion[] = [
       'escritorio, sin perder la sensación de amplitud.',
     cuerpo: [
       'Es la aplicación más pedida en departamentos: el espacio único necesita zonas, pero un ' +
-      'tabique sólido lo achica y lo oscurece. El panel calado marca el límite y deja pasar la luz ' +
+      'tabique sólido lo achica y lo oscurece. La pantalla decorativa marca el límite y deja pasar la luz ' +
       'de lado a lado.',
       'Al ser interior se abre todo el abanico de materiales y terminaciones, incluido el MDF ' +
-      'pintado a color, que es el que mejor rinde cuando el panel tiene que integrarse a una ' +
+      'pintado a color, que es el que mejor rinde cuando la pantalla tiene que integrarse a una ' +
       'paleta ya definida.',
     ],
     ubicacion: 'interior',
@@ -97,12 +97,12 @@ export const APLICACIONES: Aplicacion[] = [
   {
     slug: 'fachada-ventilada',
     nombre: 'Fachada ventilada',
-    titulo: 'Paneles calados para fachada ventilada y revestimiento exterior',
+    titulo: 'Pantallas decorativas para fachada ventilada y revestimiento exterior',
     resumen:
       'Piel exterior sobre subestructura. Suma control solar y carácter a la fachada sin ' +
       'intervenir la envolvente.',
     cuerpo: [
-      'El panel calado se monta sobre perfilería separada del muro, dejando la cámara de aire que ' +
+      'La pantalla decorativa se monta sobre perfilería separada del muro, dejando la cámara de aire que ' +
       'define una fachada ventilada. El calado regula cuanta radiación llega al paramento.',
       'Es la aplicación más exigente del catálogo y donde el material manda: aquí van HDPE o ' +
       'HPL, no madera. Trabajamos el despiece sobre los planos del proyecto.',
@@ -126,14 +126,14 @@ export const APLICACIONES: Aplicacion[] = [
     cuerpo: [
       'En restaurantes, hoteles y oficinas es la intervención de mayor efecto por metro ' +
       'cuadrado: se ve desde toda la sala y no compite con el mobiliario ni con la circulación.',
-      'Con iluminación indirecta por sobre el panel, el patrón deja de ser un dibujo en la ' +
+      'Con iluminación indirecta por sobre la pantalla, el patrón deja de ser un dibujo en la ' +
       'madera y pasa a ser una figura de luz proyectada sobre el resto del espacio.',
     ],
     ubicacion: 'interior',
     materialSugerido: 'terciado-mueblería',
     patronSugerido: 'roseta-de-doce',
     consideraciones: [
-      'Deja al menos 150 mm entre el panel y la luminaria para que el dibujo se abra.',
+      'Deja al menos 150 mm entre la pantalla y la luminaria para que el dibujo se abra.',
       'Los patrones de módulo grande se leen mejor mirados desde abajo y a distancia.',
       'Consulta la normativa de comportamiento al fuego del recinto antes de definir material.',
     ],
@@ -189,7 +189,7 @@ export const MATERIALES: Material[] = [
     detalle:
       'Es el más económico, pero en las pruebas de corte reales astilla y levanta fibra en el ' +
       'canto del calado, sobre todo en trazados finos. Eso significa más lijado a mano, más ' +
-      'tiempo de taller y mayor variabilidad en el acabado. Funciona si el panel se va a pintar ' +
+      'tiempo de taller y mayor variabilidad en el acabado. Funciona si la pantalla se va a pintar ' +
       'y el patrón es de tira ancha; para calados finos o piezas a la vista, mejor terciado de ' +
       'mueblería. No sirve para exterior ni para baños: el encolado no resiste humedad sostenida.',
   },
@@ -204,7 +204,7 @@ export const MATERIALES: Material[] = [
     detalle:
       'Mejor selección de chapa que el estándar: menos nudos, menos vacíos internos y un canto ' +
       'que astilla mucho menos al corte, por lo que el lijado final es más rápido y parejo. Es ' +
-      'el que recomendamos cuando la madera se ve, porque en un panel calado el canto queda ' +
+      'el que recomendamos cuando la madera se ve, porque en una pantalla decorativa el canto queda ' +
       'expuesto en toda su longitud.',
   },
   {
@@ -214,10 +214,10 @@ export const MATERIALES: Material[] = [
     ubicacion: 'exterior',
     nivelCosto: 2,
     recomendado: true,
-    resumen: 'Encolado fenólico. Es lo que permite sacar el panel afuera.',
+    resumen: 'Encolado fenólico. Es lo que permite sacar la pantalla afuera.',
     detalle:
       'El salto desde el terciado estándar es pequeño en el total de la cotización, porque en ' +
-      'un panel calado el grueso del costo es el mecanizado y no la plancha. Si el panel va a ' +
+      'una pantalla decorativa el grueso del costo es el mecanizado y no la plancha. Si la pantalla va a ' +
       'exterior, esta es la elección evidente.',
   },
   {
@@ -229,7 +229,7 @@ export const MATERIALES: Material[] = [
     resumen: 'Superficie sin veta, la mejor base para pintar a color.',
     detalle:
       'No tiene veta ni nudos, así que la pintura queda pareja y el color sale exacto. Es la ' +
-      'opción cuando el panel debe integrarse a una paleta ya definida. Solo interior seco: ' +
+      'opción cuando la pantalla debe integrarse a una paleta ya definida. Solo interior seco: ' +
       'ante humedad se hincha y no vuelve atrás.',
   },
   {
@@ -271,7 +271,7 @@ export const TERMINACIONES = [
   },
   {
     nombre: 'Barnizado',
-    detalle: 'Capa de protección sobre la veta. Con filtro UV si el panel recibe sol directo.',
+    detalle: 'Capa de protección sobre la veta. Con filtro UV si la pantalla recibe sol directo.',
   },
   {
     nombre: 'Pintado',
@@ -302,7 +302,7 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
     fecha: '2026-08-28',
     tiempoLectura: '6 min',
     imagen: imagenTiposDeDisenos,
-    imagenAlt: 'Panel calado de madera con patrón geométrico hexagonal, luz natural proyectando su sombra en un muro claro.',
+    imagenAlt: 'Pantalla decorativa de madera con patrón geométrico hexagonal, luz natural proyectando su sombra en un muro claro.',
     cuerpo: [
       'Todo patrón Jaali se arma sobre una unidad que se repite: el módulo. Lo que cambia de un ' +
       'diseño a otro no es la técnica de corte, es la figura que se elige para teselar el plano ' +
@@ -316,7 +316,7 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
       'más tiempo de corte y una tira más ancha para no perder rigidez en los puntos donde la ' +
       'curva se estrecha.',
       'La retícula es la familia más simple: una grilla de rombos o cuadrados sin ornamento ' +
-      'adicional. Se usa cuando el panel tiene que discretear, no protagonizar; es habitual en ' +
+      'adicional. Se usa cuando la pantalla tiene que discretear, no protagonizar; es habitual en ' +
       'frentes de mueble y biombos donde el patrón no debe competir con el resto del ambiente.',
       'Tres números definen a cualquier patrón, más allá de su familia: el módulo (el tamaño de ' +
       'la unidad que se repite), el ancho de tira (el grosor de madera que queda entre calados, ' +
@@ -324,7 +324,7 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
       'pasan). Subir el calado baja la rigidez; es la decisión de diseño detrás de cada patrón, ' +
       'no un detalle estético.',
       'No hay un patrón "mejor": hay un patrón que responde a la escala del vano, a la distancia ' +
-      'desde la que se va a mirar y al uso que va a tener el panel. En la página de diseños está ' +
+      'desde la que se va a mirar y al uso que va a tener la pantalla. En la página de diseños está ' +
       'la ficha técnica completa de cada uno, con su módulo y su porcentaje de calado.',
     ],
   },
@@ -332,24 +332,24 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
     slug: 'jaali-en-decoracion-y-arquitectura',
     titulo: 'Jaali en decoración y arquitectura: de la ventana al cielo',
     resumen:
-      'El panel calado dejó de ser solo una solución para fachadas. Repasamos los usos que más ' +
+      'La pantalla decorativa dejó de ser solo una solución para fachadas. Repasamos los usos que más ' +
       'está tomando dentro de la casa y en proyectos de arquitectura interior.',
     fecha: '2026-08-28',
     tiempoLectura: '5 min',
     imagen: imagenJaaliEnDecoracion,
     imagenAlt: 'Living minimalista con un biombo calado de madera separando el comedor, luz de tarde filtrada por el calado.',
     cuerpo: [
-      'El panel calado nació resolviendo un problema de clima: ventilar sin exponer, sombrear sin ' +
+      'La pantalla decorativa nació resolviendo un problema de clima: ventilar sin exponer, sombrear sin ' +
       'oscurecer. Esa misma lógica se trasladó adentro de la casa y hoy se usa donde antes se ' +
       'ponía un tabique de yeso cartón.',
       'En arquitectura interior, el uso más extendido es como separador de ambientes: divide el ' +
       'living del comedor, o un escritorio del resto de la casa, sin cerrar el espacio ni tapar ' +
       'la luz que entra por la ventana del otro lado.',
       'El segundo uso en crecimiento es el cielo decorativo, sobre todo en locales comerciales y ' +
-      'hotelería. Con iluminación indirecta por encima del panel, el patrón deja de leerse como ' +
+      'hotelería. Con iluminación indirecta por encima de la pantalla, el patrón deja de leerse como ' +
       'un dibujo tallado en la madera y pasa a proyectarse como una figura de luz sobre las ' +
       'mesas y el piso.',
-      'Puertas de closet, frentes de mueble de audio y video, puertas de bar: el panel calado resuelve ' +
+      'Puertas de closet, frentes de mueble de audio y video, puertas de bar: la pantalla decorativa resuelve ' +
       'ahí un problema práctico, no solo decorativo. El calado deja circular el aire dentro del ' +
       'mueble y, en equipos electrónicos, deja pasar la señal del control remoto.',
       'Afuera, sigue siendo la solución de fachada ventilada y quiebravista que fue siempre: una ' +
@@ -370,9 +370,9 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
     fecha: '2026-08-28',
     tiempoLectura: '7 min',
     imagen: imagenGuiaDeDiseno,
-    imagenAlt: 'Detalle de una fachada ventilada con paneles calados de madera, luz cálida de atardecer marcando el relieve del calado.',
+    imagenAlt: 'Detalle de una fachada ventilada con pantallas decorativas de madera, luz cálida de atardecer marcando el relieve del calado.',
     cuerpo: [
-      'Jaali (del hindi/urdu, "red" o "malla") es el nombre que reciben los paneles calados en ' +
+      'Jaali (del hindi/urdu, "red" o "malla") es el nombre que reciben las pantallas decorativas en ' +
       'piedra o madera de la arquitectura del sur de Asia. Se usaron durante siglos en ventanas, ' +
       'pantallas y balcones, sobre todo en climas cálidos donde ventilar sin dejar entrar sol ' +
       'directo era una necesidad estructural, no una moda.',
@@ -391,7 +391,7 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
       'El tercer principio es la escala en relación a la distancia de lectura. Un patrón de ' +
       'módulo chico se lee como textura cuando se mira de cerca, en un frente de mueble; el ' +
       'mismo patrón agrandado se lee como figura cuando se mira desde lejos, en una fachada. La ' +
-      'escala del módulo no es una preferencia estética: depende de dónde va a estar el panel y ' +
+      'escala del módulo no es una preferencia estética: depende de dónde va a estar la pantalla y ' +
       'desde dónde se lo va a mirar.',
       'Hoy la técnica se usa fuera de su origen geográfico, aplicada a materiales que no existían ' +
       'cuando se inventó: terciado marino, MDF, HDPE. Lo que se mantiene igual es el principio de ' +

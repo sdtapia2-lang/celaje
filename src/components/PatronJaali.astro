@@ -8,8 +8,8 @@
  * y el color sale de un token, de modo que un único archivo sirve para todas
  * las variantes.
  *
- * `sombra` inclina y desenfoca la trama para leerse como la sombra que el
- * panel proyecta, en vez del panel mismo.
+ * `sombra` inclina y desenfoca la trama para leerse como la sombra que la
+ * pantalla proyecta, en vez de la pantalla misma.
  */
 import { patronPorSlug } from '../config/contenido';
 
@@ -72,7 +72,7 @@ const alto = escala / datos.relacionCelda;
     inset: 0;
   }
 
-  /* La sombra de un panel calado nunca cae a escuadra: se alarga y se inclina
+  /* La sombra de una pantalla decorativa nunca cae a escuadra: se alarga y se inclina
      según la altura del sol, y pierde definición con la distancia. */
   .patron--sombra {
     transform: skewY(-8deg) skewX(-3deg) scale(1.25);

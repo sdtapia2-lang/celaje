@@ -7,7 +7,7 @@
     "teselado": "cuadrado",
     "anguloContacto": 45,
     "moduloMm": 200,
-    "tiraMm": 27,
+    "tiraMm": 28,
     "caladoPct": 65,
     "celda": [
       1,
@@ -53,7 +53,7 @@
   {
     "slug": "khatam-andalusi",
     "nombre": "Khatam andalusí",
-    "origen": "Trazado sobre el teselado de octógonos y cuadrados, el que sostiene los paneles calados de al-Andalus y del Magreb. Dibujo denso y de sombra muy gráfica, la familia a la que pertenece el primer prototipo del taller.",
+    "origen": "Trazado sobre el teselado de octógonos y cuadrados, el que sostiene los pantallas decorativas de al-Andalus y del Magreb. Dibujo denso y de sombra muy gráfica, la familia a la que pertenece el primer prototipo del taller.",
     "destacado": true,
     "teselado": "4.8.8",
     "anguloContacto": 45,
