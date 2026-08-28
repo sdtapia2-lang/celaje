@@ -55,7 +55,7 @@ export const APLICACIONES: Aplicacion[] = [
       'Recupera la terraza sin cerrarla. El calado corta la vista del vecino y baja el sol ' +
       'de la tarde, pero deja pasar el aire y la luz.',
     cuerpo: [
-      'Un panel ciego te tapa la vista y te deja la terraza oscura y encajonada. Una celosía ' +
+      'Un panel ciego te tapa la vista y te deja la terraza oscura y encajonada. Uno calado ' +
       'hace lo contrario: bloquea la línea de visión directa desde el departamento de enfrente ' +
       'y sigue ventilando.',
       'Para exterior el material no es negociable: terciado marino de encolado fenólico o HDPE. ' +
@@ -79,7 +79,7 @@ export const APLICACIONES: Aplicacion[] = [
       'escritorio, sin perder la sensación de amplitud.',
     cuerpo: [
       'Es la aplicación más pedida en departamentos: el espacio único necesita zonas, pero un ' +
-      'tabique sólido lo achica y lo oscurece. La celosía marca el límite y deja pasar la luz ' +
+      'tabique sólido lo achica y lo oscurece. El panel calado marca el límite y deja pasar la luz ' +
       'de lado a lado.',
       'Al ser interior se abre todo el abanico de materiales y terminaciones, incluido el MDF ' +
       'pintado a color, que es el que mejor rinde cuando el panel tiene que integrarse a una ' +
@@ -97,12 +97,12 @@ export const APLICACIONES: Aplicacion[] = [
   {
     slug: 'fachada-ventilada',
     nombre: 'Fachada ventilada',
-    titulo: 'Celosías para fachada ventilada y revestimiento exterior',
+    titulo: 'Paneles calados para fachada ventilada y revestimiento exterior',
     resumen:
       'Piel exterior sobre subestructura. Suma control solar y carácter a la fachada sin ' +
       'intervenir la envolvente.',
     cuerpo: [
-      'La celosía se monta sobre perfilería separada del muro, dejando la cámara de aire que ' +
+      'El panel calado se monta sobre perfilería separada del muro, dejando la cámara de aire que ' +
       'define una fachada ventilada. El calado regula cuanta radiación llega al paramento.',
       'Es la aplicación más exigente del catálogo y donde el material manda: aquí van HDPE o ' +
       'HPL, no madera. Trabajamos el despiece sobre los planos del proyecto.',
@@ -204,8 +204,8 @@ export const MATERIALES: Material[] = [
     detalle:
       'Mejor selección de chapa que el estándar: menos nudos, menos vacíos internos y un canto ' +
       'que astilla mucho menos al corte, por lo que el lijado final es más rápido y parejo. Es ' +
-      'el que recomendamos cuando la madera se ve, porque en una celosía el canto del calado ' +
-      'queda expuesto en toda su longitud.',
+      'el que recomendamos cuando la madera se ve, porque en un panel calado el canto queda ' +
+      'expuesto en toda su longitud.',
   },
   {
     slug: 'terciado-marino',
@@ -217,7 +217,7 @@ export const MATERIALES: Material[] = [
     resumen: 'Encolado fenólico. Es lo que permite sacar el panel afuera.',
     detalle:
       'El salto desde el terciado estándar es pequeño en el total de la cotización, porque en ' +
-      'una celosía el grueso del costo es el mecanizado y no la plancha. Si el panel va a ' +
+      'un panel calado el grueso del costo es el mecanizado y no la plancha. Si el panel va a ' +
       'exterior, esta es la elección evidente.',
   },
   {
@@ -302,7 +302,7 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
     fecha: '2026-08-28',
     tiempoLectura: '6 min',
     imagen: imagenTiposDeDisenos,
-    imagenAlt: 'Panel de celosía de madera con patrón geométrico hexagonal, luz natural proyectando su sombra en un muro claro.',
+    imagenAlt: 'Panel calado de madera con patrón geométrico hexagonal, luz natural proyectando su sombra en un muro claro.',
     cuerpo: [
       'Todo patrón Jaali se arma sobre una unidad que se repite: el módulo. Lo que cambia de un ' +
       'diseño a otro no es la técnica de corte, es la figura que se elige para teselar el plano ' +
@@ -332,14 +332,14 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
     slug: 'jaali-en-decoracion-y-arquitectura',
     titulo: 'Jaali en decoración y arquitectura: de la ventana al cielo',
     resumen:
-      'La celosía calada dejó de ser solo una solución para fachadas. Repasamos los usos que más ' +
+      'El panel calado dejó de ser solo una solución para fachadas. Repasamos los usos que más ' +
       'está tomando dentro de la casa y en proyectos de arquitectura interior.',
     fecha: '2026-08-28',
     tiempoLectura: '5 min',
     imagen: imagenJaaliEnDecoracion,
-    imagenAlt: 'Living minimalista con un biombo de celosía de madera separando el comedor, luz de tarde filtrada por el calado.',
+    imagenAlt: 'Living minimalista con un biombo calado de madera separando el comedor, luz de tarde filtrada por el calado.',
     cuerpo: [
-      'La celosía nació resolviendo un problema de clima: ventilar sin exponer, sombrear sin ' +
+      'El panel calado nació resolviendo un problema de clima: ventilar sin exponer, sombrear sin ' +
       'oscurecer. Esa misma lógica se trasladó adentro de la casa y hoy se usa donde antes se ' +
       'ponía un tabique de yeso cartón.',
       'En arquitectura interior, el uso más extendido es como separador de ambientes: divide el ' +
@@ -349,7 +349,7 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
       'hotelería. Con iluminación indirecta por encima del panel, el patrón deja de leerse como ' +
       'un dibujo tallado en la madera y pasa a proyectarse como una figura de luz sobre las ' +
       'mesas y el piso.',
-      'Puertas de closet, frentes de mueble de audio y video, puertas de bar: la celosía resuelve ' +
+      'Puertas de closet, frentes de mueble de audio y video, puertas de bar: el panel calado resuelve ' +
       'ahí un problema práctico, no solo decorativo. El calado deja circular el aire dentro del ' +
       'mueble y, en equipos electrónicos, deja pasar la señal del control remoto.',
       'Afuera, sigue siendo la solución de fachada ventilada y quiebravista que fue siempre: una ' +
@@ -370,9 +370,9 @@ export const ARTICULOS_BLOG: ArticuloBlog[] = [
     fecha: '2026-08-28',
     tiempoLectura: '7 min',
     imagen: imagenGuiaDeDiseno,
-    imagenAlt: 'Detalle de una fachada ventilada con paneles de celosía de madera, luz cálida de atardecer marcando el relieve del calado.',
+    imagenAlt: 'Detalle de una fachada ventilada con paneles calados de madera, luz cálida de atardecer marcando el relieve del calado.',
     cuerpo: [
-      'Jaali (del hindi/urdu, "red" o "malla") es el nombre que reciben las celosías caladas en ' +
+      'Jaali (del hindi/urdu, "red" o "malla") es el nombre que reciben los paneles calados en ' +
       'piedra o madera de la arquitectura del sur de Asia. Se usaron durante siglos en ventanas, ' +
       'pantallas y balcones, sobre todo en climas cálidos donde ventilar sin dejar entrar sol ' +
       'directo era una necesidad estructural, no una moda.',

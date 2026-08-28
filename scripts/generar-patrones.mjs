@@ -75,8 +75,8 @@ const PATRONES = [
     slug: 'khatam-andalusi', nombre: 'Khatam andalusí',
     tesela: '4.8.8', angulo: 45, moduloMm: 280, calado: 0.55,
     origen:
-      'Trazado sobre el teselado de octógonos y cuadrados, el que sostiene las ' +
-      'celosías de al-Andalus y del Magreb. Dibujo denso y de sombra muy gráfica, ' +
+      'Trazado sobre el teselado de octógonos y cuadrados, el que sostiene los ' +
+      'paneles calados de al-Andalus y del Magreb. Dibujo denso y de sombra muy gráfica, ' +
       'la familia a la que pertenece el primer prototipo del taller.',
     destacado: true,
   },

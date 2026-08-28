@@ -28,7 +28,7 @@ const pasos = [
     texto:
       'La fresadora CNC sigue el trazado con precisión de décimas de milímetro. Después viene ' +
       'lo que ninguna máquina hace: lijar a mano el canto de cada calado, que es donde de ' +
-      'verdad se nota si una celosía está bien hecha.',
+      'verdad se nota si un panel calado está bien hecho.',
   },
 ];
 
@@ -37,8 +37,8 @@ const exterior = MATERIALES.filter((m) => m.ubicacion === 'exterior');
 ---
 
 <Base
-  titulo="Celosías de madera a medida"
-  descripcion="Celosías y quiebravistas de madera cortados en CNC, con geometría islámica trazada a mano. A la medida exacta de tu vano. Santiago, Chile."
+  titulo="Paneles calados de madera a medida"
+  descripcion="Paneles calados y quiebravistas de madera cortados en CNC, con geometría islámica trazada a mano. A la medida exacta de tu vano. Santiago, Chile."
 >
   <section class="inicio-hero">
     <div class="inicio-hero__luz">
@@ -46,14 +46,14 @@ const exterior = MATERIALES.filter((m) => m.ubicacion === 'exterior');
     </div>
 
     <div class="contenedor inicio-hero__cuerpo">
-      <p class="inicio-hero__antetitulo">Celosías jaali a medida &middot; Santiago</p>
+      <p class="inicio-hero__antetitulo">Paneles calados jaali a medida &middot; Santiago</p>
       <h1 class="inicio-hero__titulo">{TAGLINE}</h1>
       <p class="inicio-hero__bajada medida-lectura">
         Paneles calados en madera, cortados en CNC a la medida exacta de tu vano. No tapan:
         filtran. Cortan la vista y el sol de la tarde, y dejan pasar la luz y el aire.
       </p>
       <div class="inicio-hero__acciones">
-        <Boton href="/cotizar">Cotizar mi celosía</Boton>
+        <Boton href="/cotizar">Cotizar mi panel calado</Boton>
         <Boton href="/disenos" variante="secundario">Ver los diseños</Boton>
       </div>
     </div>
@@ -64,7 +64,7 @@ const exterior = MATERIALES.filter((m) => m.ubicacion === 'exterior');
       <p class="etiqueta">Cómo se hace</p>
       <h2 class="titulo-seccion medida-lectura">Un patrón no se copia. Se construye.</h2>
       <p class="bajada medida-lectura">
-        La diferencia entre una celosía y un enrejado repetido está en el trazado. El nuestro
+        La diferencia entre un panel calado y un enrejado repetido está en el trazado. El nuestro
         sigue el método histórico de construcción del patrón islámico, aprendido donde se enseña.
       </p>
 
@@ -85,7 +85,7 @@ const exterior = MATERIALES.filter((m) => m.ubicacion === 'exterior');
   <section class="seccion seccion--crema">
     <div class="contenedor">
       <p class="etiqueta">Dónde va</p>
-      <h2 class="titulo-seccion">Cinco maneras de usar una celosía</h2>
+      <h2 class="titulo-seccion">Cinco maneras de usar un panel calado</h2>
 
       <ul class="inicio-apps">
         {
@@ -159,7 +159,7 @@ const exterior = MATERIALES.filter((m) => m.ubicacion === 'exterior');
       </ul>
 
       <p class="inicio-seccion__pie">
-        <Boton href="/disenos" variante="texto">Ver los cinco diseños</Boton>
+        <Boton href="/disenos" variante="texto">Ver los seis diseños</Boton>
       </p>
     </div>
   </section>
@@ -170,7 +170,7 @@ const exterior = MATERIALES.filter((m) => m.ubicacion === 'exterior');
         <p class="etiqueta">Materiales</p>
         <h2 class="titulo-seccion">Adentro o afuera</h2>
         <p class="bajada">
-          En una celosía el grueso del costo está en el mecanizado, no en la plancha. Por eso
+          En un panel calado el grueso del costo está en el mecanizado, no en la plancha. Por eso
           pasar a un material apto para exterior encarece mucho menos de lo que se suele suponer:
           si el panel va afuera, no tiene sentido arriesgarse con uno de interior.
         </p>

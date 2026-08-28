@@ -6,7 +6,7 @@
  */
 
 export const NOMBRE = 'CELAJE';
-export const DESCRIPTOR = 'Celosías a medida';
+export const DESCRIPTOR = 'Paneles calados a medida';
 export const LOCKUP = `${NOMBRE} · ${DESCRIPTOR}`;
 
 export const DOMINIO = 'celaje.cl';
@@ -21,12 +21,12 @@ export const PAIS = 'Chile';
 export const TAGLINE = 'Geometría que respira';
 
 export const DESCRIPCION_META =
-  'Celosías de madera a medida, cortadas en CNC con geometría islámica trazada a mano. ' +
+  'Paneles calados de madera a medida, cortados en CNC con geometría islámica trazada a mano. ' +
   'Quiebravistas, biombos, fachadas y cielos decorativos para arquitectos, hogares y comercios en Chile.';
 
 /** Mensaje que se abre prellenado al tocar el botón de WhatsApp. */
 export const WHATSAPP_MENSAJE =
-  `Hola ${NOMBRE}, quiero cotizar una celosía a medida.`;
+  `Hola ${NOMBRE}, quiero cotizar un panel calado a medida.`;
 
 export const whatsappUrl = (mensaje: string = WHATSAPP_MENSAJE) =>
   `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
