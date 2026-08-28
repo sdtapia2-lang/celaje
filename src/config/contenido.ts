@@ -139,25 +139,30 @@ export const APLICACIONES: Aplicacion[] = [
     ],
   },
   {
-    slug: 'puertas-y-frentes-de-mueble',
-    nombre: 'Frentes de mueble',
-    titulo: 'Puertas y frentes de mueble calados a medida',
+    slug: 'cuadros-y-decoracion',
+    nombre: 'Cuadros y decoración',
+    titulo: 'Cuadros y paneles decorativos calados para pared',
     resumen:
-      'Closets, bares, muebles de televisión y despensas. El calado ventila el interior y ' +
-      'convierte un frente plano en la pieza principal del ambiente.',
+      'Un cuadro que no se pinta: se corta. El calado convierte un patrón geométrico en la ' +
+      'pieza central de una pared, con o sin luz detrás.',
     cuerpo: [
-      'Es la escala más chica y la de plazo más corto. Sirve tanto para renovar un mueble ' +
-      'existente cambiándole solo las puertas, como para un proyecto de carpintería nuevo.',
-      'En equipos de audio y video el calado no es solo estético: deja respirar los aparatos y ' +
-      'permite que pase la señal de los controles remotos.',
+      'Acá el calado no resuelve ventilación ni privacidad: es puramente compositivo. Funciona ' +
+      'como pieza única sobre un sofá o un escritorio, o repetido en formato tríptico para ' +
+      'cubrir un muro completo sin que se note la unión entre paños.',
+      'Con una tira de luz LED montada detrás y separada del muro, el patrón deja de ser solo ' +
+      'relieve y proyecta su propia sombra sobre la pared: la misma pieza se ve distinta de día ' +
+      'que de noche.',
     ],
     ubicacion: 'interior',
     materialSugerido: 'mdf',
-    patronSugerido: 'reticula-de-rombos',
+    patronSugerido: 'tabla-hexagonal',
     consideraciones: [
-      'En módulos angostos conviene un patrón de módulo chico para que el dibujo se lea entero.',
-      'Se entrega perforado para bisagra si nos pasas el herraje que vas a usar.',
-      'El MDF pintado es el que mejor iguala el color de una cocina o un closet existente.',
+      'Se entrega lista para colgar, con el sistema de fijación que prefieras: riel francés, ' +
+      'argollas o tacos ocultos.',
+      'Si va con luz de fondo, deja al menos 40 mm de separación del muro para que la sombra se ' +
+      'abra bien.',
+      'Para formato tríptico, el patrón se ajusta para que la trama cruce sin cortes visibles ' +
+      'entre los tres paños.',
     ],
   },
 ];
