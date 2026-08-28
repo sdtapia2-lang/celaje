@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import { ARTICULOS_BLOG } from '../../config/contenido';
+
+const formateador = new Intl.DateTimeFormat('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Base
+  titulo="Blog"
+  descripcion="Artículos sobre diseños Jaali: tipos de patrones, aplicaciones en decoración y arquitectura, y principios detrás de la celosía calada."
+>
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="rastro"><a href="/">Inicio</a> / Blog</p>
+      <p class="etiqueta">Lecturas</p>
+      <h1 class="titulo-seccion">Sobre celosías y diseño Jaali</h1>
+      <p class="bajada medida-lectura">
+        Notas sobre la técnica: qué distingue a un patrón de otro, dónde se usa la celosía calada
+        y qué principios de diseño hay detrás de cada trazado.
+      </p>
+
+      <ul class="blog-grid">
+        {
+          ARTICULOS_BLOG.map((a) => (
+            <li>
+              <a href={`/blog/${a.slug}`} class="blog-tarjeta">
+                <div class="blog-tarjeta__cuerpo">
+                  <p class="blog-tarjeta__meta">
+                    {formateador.format(new Date(`${a.fecha}T00:00:00`))} · {a.tiempoLectura}
+                  </p>
+                  <h2 class="blog-tarjeta__titulo">{a.titulo}</h2>
+                  <p class="blog-tarjeta__resumen">{a.resumen}</p>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Base>

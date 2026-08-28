@@ -275,6 +275,122 @@ export const TERMINACIONES = [
   },
 ];
 
+/* --------------------------------- blog --------------------------------- */
+
+export interface ArticuloBlog {
+  slug: string;
+  titulo: string;
+  resumen: string;
+  fecha: string;
+  tiempoLectura: string;
+  cuerpo: string[];
+}
+
+export const ARTICULOS_BLOG: ArticuloBlog[] = [
+  {
+    slug: 'tipos-de-disenos-jaali',
+    titulo: 'Tipos de diseños Jaali: cómo leer un patrón calado',
+    resumen:
+      'Geométricos, florales o de retícula: cada familia de patrones resuelve distinto la ' +
+      'relación entre calado y madera. Una guía para reconocerlos antes de elegir uno.',
+    fecha: '2026-08-28',
+    tiempoLectura: '6 min',
+    cuerpo: [
+      'Todo patrón Jaali se arma sobre una unidad que se repite: el módulo. Lo que cambia de un ' +
+      'diseño a otro no es la técnica de corte, es la figura que se elige para teselar el plano ' +
+      'y el porcentaje de calado que resulta de esa elección.',
+      'Los patrones geométricos son los más comunes: hexágonos, estrellas, rombos y sus ' +
+      'combinaciones. Se apoyan en la simetría, así que el ojo los lee como orden incluso a ' +
+      'distancia. Son también los más predecibles de fabricar, porque el teselado se resuelve ' +
+      'con ángulos exactos y no depende de curvas.',
+      'Los patrones florales y de roseta parten de una geometría igual de estricta, pero la ' +
+      'disimulan con curvas: pétalos, lóbulos, tramas que giran alrededor de un centro. Piden ' +
+      'más tiempo de corte y una tira más ancha para no perder rigidez en los puntos donde la ' +
+      'curva se estrecha.',
+      'La retícula es la familia más simple: una grilla de rombos o cuadrados sin ornamento ' +
+      'adicional. Se usa cuando el panel tiene que discretear, no protagonizar; es habitual en ' +
+      'frentes de mueble y biombos donde el patrón no debe competir con el resto del ambiente.',
+      'Tres números definen a cualquier patrón, más allá de su familia: el módulo (el tamaño de ' +
+      'la unidad que se repite), el ancho de tira (el grosor de madera que queda entre calados, ' +
+      'y que determina la rigidez de la pieza) y el porcentaje de calado (cuánta luz y aire ' +
+      'pasan). Subir el calado baja la rigidez; es la decisión de diseño detrás de cada patrón, ' +
+      'no un detalle estético.',
+      'No hay un patrón "mejor": hay un patrón que responde a la escala del vano, a la distancia ' +
+      'desde la que se va a mirar y al uso que va a tener el panel. En la página de diseños está ' +
+      'la ficha técnica completa de cada uno, con su módulo y su porcentaje de calado.',
+    ],
+  },
+  {
+    slug: 'jaali-en-decoracion-y-arquitectura',
+    titulo: 'Jaali en decoración y arquitectura: de la ventana al cielo',
+    resumen:
+      'La celosía calada dejó de ser solo una solución para fachadas. Repasamos los usos que más ' +
+      'está tomando dentro de la casa y en proyectos de arquitectura interior.',
+    fecha: '2026-08-28',
+    tiempoLectura: '5 min',
+    cuerpo: [
+      'La celosía nació resolviendo un problema de clima: ventilar sin exponer, sombrear sin ' +
+      'oscurecer. Esa misma lógica se trasladó adentro de la casa y hoy se usa donde antes se ' +
+      'ponía un tabique de yeso cartón.',
+      'En arquitectura interior, el uso más extendido es como separador de ambientes: divide el ' +
+      'living del comedor, o un escritorio del resto de la casa, sin cerrar el espacio ni tapar ' +
+      'la luz que entra por la ventana del otro lado.',
+      'El segundo uso en crecimiento es el cielo decorativo, sobre todo en locales comerciales y ' +
+      'hotelería. Con iluminación indirecta por encima del panel, el patrón deja de leerse como ' +
+      'un dibujo tallado en la madera y pasa a proyectarse como una figura de luz sobre las ' +
+      'mesas y el piso.',
+      'Puertas de closet, frentes de mueble de audio y video, puertas de bar: la celosía resuelve ' +
+      'ahí un problema práctico, no solo decorativo. El calado deja circular el aire dentro del ' +
+      'mueble y, en equipos electrónicos, deja pasar la señal del control remoto.',
+      'Afuera, sigue siendo la solución de fachada ventilada y quiebravista que fue siempre: una ' +
+      'piel montada sobre una subestructura separada del muro, que filtra sol y vista sin ' +
+      'bloquear la ventilación de la cámara de aire.',
+      'Lo que cambió no es la técnica, es la cantidad de lugares donde un arquitecto o un ' +
+      'diseñador de interiores decide usar calado en vez de un plano ciego. Cada aplicación pide ' +
+      'un material y un patrón distintos: el detalle de cada una está en la sección de ' +
+      'aplicaciones.',
+    ],
+  },
+  {
+    slug: 'guia-de-diseno-jaali',
+    titulo: 'Guía de diseño Jaali: historia, función y principios',
+    resumen:
+      'De dónde viene la técnica, qué problema resuelve y qué principios de diseño hay detrás de ' +
+      'cada patrón calado. Una introducción antes de elegir el tuyo.',
+    fecha: '2026-08-28',
+    tiempoLectura: '7 min',
+    cuerpo: [
+      'Jaali (del hindi/urdu, "red" o "malla") es el nombre que reciben las celosías caladas en ' +
+      'piedra o madera de la arquitectura del sur de Asia. Se usaron durante siglos en ventanas, ' +
+      'pantallas y balcones, sobre todo en climas cálidos donde ventilar sin dejar entrar sol ' +
+      'directo era una necesidad estructural, no una moda.',
+      'La función precede al ornamento. Antes que un patrón bonito, un Jaali es una solución a ' +
+      'tres problemas al mismo tiempo: control solar, ventilación cruzada y privacidad, todo sin ' +
+      'cerrar el vano por completo. El calado hace de filtro: deja pasar el aire, corta la línea ' +
+      'de visión directa y reduce la radiación que llega al otro lado.',
+      'De esa función nace el principio de diseño central: la relación entre lleno y vacío. Cada ' +
+      'patrón es un balance entre la madera que queda (la tira, que da rigidez estructural) y el ' +
+      'espacio que se retira (el calado, que da paso a luz y aire). Ese balance es lo que un ' +
+      'buen diseño Jaali tiene que resolver antes de pensar en la forma de la figura.',
+      'El segundo principio es la repetición modular. Un patrón Jaali no se dibuja pieza por ' +
+      'pieza: se define una unidad mínima y se repite sobre una grilla, geométrica o triangular, ' +
+      'hasta cubrir el plano completo. Esa repetición es lo que permite fabricarlo por corte CNC ' +
+      'hoy en día con precisión milimétrica, algo que antes tomaba semanas de talla manual.',
+      'El tercer principio es la escala en relación a la distancia de lectura. Un patrón de ' +
+      'módulo chico se lee como textura cuando se mira de cerca, en un frente de mueble; el ' +
+      'mismo patrón agrandado se lee como figura cuando se mira desde lejos, en una fachada. La ' +
+      'escala del módulo no es una preferencia estética: depende de dónde va a estar el panel y ' +
+      'desde dónde se lo va a mirar.',
+      'Hoy la técnica se usa fuera de su origen geográfico, aplicada a materiales que no existían ' +
+      'cuando se inventó: terciado marino, MDF, HDPE. Lo que se mantiene igual es el principio de ' +
+      'diseño de origen, control solar y ventilación resueltos con un patrón que repite una ' +
+      'unidad geométrica, ajustando esa unidad a la función y a la escala de cada proyecto.',
+    ],
+  },
+];
+
+export const articuloBlogPorSlug = (slug: string) => ARTICULOS_BLOG.find((a) => a.slug === slug);
+
 /* ------------------------------ navegacion ----------------------------- */
 
 export const NAVEGACION = [
@@ -282,4 +398,5 @@ export const NAVEGACION = [
   { href: '/aplicaciones', texto: 'Aplicaciones' },
   { href: '/materiales', texto: 'Materiales' },
   { href: '/el-oficio', texto: 'El oficio' },
+  { href: '/blog', texto: 'Blog' },
 ];
